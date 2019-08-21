@@ -13,8 +13,8 @@ public class EnemyController : MonoBehaviour
     private float minSpeed = 30;
     private float aheadAngle = 30;
 
-    private float stunTime = 3;
-    private float stunCycleTimer = 6;
+    private float stunTime = 2;
+    private float stunCycleTimer = 5;
     private float stunCycleMinTime = 3;
     private float stunCycleMaxTime = 6;
 
@@ -99,6 +99,8 @@ public class EnemyController : MonoBehaviour
         {
             stunCycleTimer = Random.Range(stunCycleMinTime, stunCycleMaxTime);
 
+            Debug.Log("enemy player stunned for: " + stunCycleTimer.ToString() + " seconds");
+
         }
 
     }
@@ -112,8 +114,6 @@ public class EnemyController : MonoBehaviour
 
         shipRigidBody.AddRelativeForce(0f, 0f, speed);
 
-
-        //
         shipRigidBody.AddRelativeTorque(0f, turnInput * turnSpeed, 0f);
 
     }
@@ -124,10 +124,7 @@ public class EnemyController : MonoBehaviour
     private float setRandomSpeed()
     {
         float newSpeed = Random.Range(minSpeed, maxSpeed);
-        Debug.Log("new speed is: " + newSpeed.ToString());
 
-        float doubleSpeed = Utils.doubleNumber(newSpeed);
-        Debug.Log("doubled speed is:" + doubleSpeed.ToString());
         return newSpeed;
     }
 
