@@ -2,7 +2,7 @@
 
 public class Utils
 {
-    // Start is called before the first frame update
+    // Test function
     public static float doubleNumber(float input)
     {
         float doubledAmount = input * 2;
@@ -11,9 +11,19 @@ public class Utils
 
     }
 
-    // Update is called once per frame
-    void Update()
+
+    // Convert an input number within a range into another range
+    public static float convertToNewRange(float oldRangeMin, float oldRangeMax,float newRangeMin, float newRangeMax, float inputNum)
     {
-        
+
+        float oldRange = (oldRangeMin - oldRangeMax);
+        float newRange = (newRangeMin - newRangeMax);
+
+        float newValue = ((inputNum - oldRangeMin) * newRange / oldRange) + newRangeMin;
+
+        return newValue;
+
     }
+
+
 }
