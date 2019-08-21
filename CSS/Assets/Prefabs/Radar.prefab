@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 666670389524407529}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -47,6 +47,7 @@ MonoBehaviour:
   radarBaseCanvas: {fileID: 2214410066473552623}
   enemyPointer: {fileID: 1341511887982153177, guid: ec51aaf0927454285b12e1c260652571,
     type: 3}
+  playerShip: {fileID: 0}
   enemyPointerList: []
 --- !u!1 &8556883725347915044
 GameObject:
@@ -86,7 +87,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 80, y: 60}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &2214410066473552623
 Canvas:
