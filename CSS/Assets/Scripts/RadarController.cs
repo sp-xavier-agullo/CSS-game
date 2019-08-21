@@ -7,8 +7,8 @@ public class RadarController : MonoBehaviour
 {
 
     public Canvas radarBaseCanvas;
-
     public GameObject enemyPointer;
+	public GameObject playerShip;
 
     public List<GameObject> enemyPointerList = new List<GameObject>();
 
@@ -32,7 +32,7 @@ public class RadarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(transform.position.x, 1, transform.position.z);
+        transform.position = new Vector3(playerShip.transform.position.x, 5, playerShip.transform.position.z);
 
         // Update Pointers
         for (int i = 0; i < enemyPointerList.Count; i++)
@@ -41,15 +41,19 @@ public class RadarController : MonoBehaviour
             enemyPointerList[i].transform.rotation = Quaternion.Euler (new Vector3 (90, GameManager.Instance.enemyList[i].transform.eulerAngles.y, 0));
 
             // adjust position
-            float enemyPositionX = GameManager.Instance.enemyList[i].transform.position.x;
-            float enemyPositionY = GameManager.Instance.enemyList[i].transform.position.z;
+            float enemyPositionX = GameManager.Instance.enemyList[i].transform.position.x - playerShip.transform.position.x;
+            float enemyPositionY = GameManager.Instance.enemyList[i].transform.position.z - playerShip.transform.position.z;
+
+			Debug.Log("enemy position is : " + enemyPositionX.ToString() + " " + enemyPositionY.ToString());
 
             Transform playerT = GameManager.Instance.transform;
 
-            float newXposition = Utils.convertToNewRange(playerT.position.x-1000, playerT.position.x+1000, -40, 40, enemyPositionX);
-            float newYposition = Utils.convertToNewRange(playerT.position.z- 1000, playerT.position.z+1000, -40, 40, enemyPositionY);
+            float newXposition = Utils.convertToNewRange(-1000, +1000, -80, 80, enemyPositionX);
+            float newYposition = Utils.convertToNewRange(-1000, +1000, -80, 80, enemyPositionY);
 
-            enemyPointerList[i].transform.localPosition = new Vector3(newXposition, 0, newYposition);
+			Debug.Log("pointer position is : " + newXposition.ToString() + " " + newYposition.ToString());
+
+			enemyPointerList[i].transform.localPosition = new Vector3(newXposition, 0, newYposition);
 
         }
     }
