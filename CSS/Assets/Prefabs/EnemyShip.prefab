@@ -127,6 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 50
   turnSpeed: 0.5
+  currentAiMode: 0
 --- !u!54 &6957097294468742480
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -225,7 +226,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 3
+  m_Time: 4
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 4

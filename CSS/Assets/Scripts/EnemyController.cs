@@ -14,7 +14,7 @@ public class EnemyController : MonoBehaviour
     private float aheadAngle = 30;
 
     private float stunTime = 2;
-    private float stunCycleTimer = 5;
+    private float stunCycleTimer = 6;
     private float stunCycleMinTime = 3;
     private float stunCycleMaxTime = 6;
 
