@@ -1,0 +1,30 @@
+﻿<Properties StartupConfiguration="{7D78BA9D-006A-9C39-6BB2-51AFB315E133}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Utils.cs">
+    <Files>
+      <File FileName="Assets/Scripts/ShipController.cs" Line="16" Column="31" />
+      <File FileName="Assets/Scripts/EnemyController.cs" Line="50" Column="19" />
+      <File FileName="Assets/Scripts/GameManager.cs" />
+      <File FileName="Assets/Scripts/Utils.cs" Line="4" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="CSS" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="Utils.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="f1be21b3-3bfc-4283-9661-7981a97ebeb9" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
