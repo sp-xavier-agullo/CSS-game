@@ -4,8 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Asteroid
-  - EnemyShip
+  - Camera
   layers:
   - Default
   - TransparentFX
@@ -15,7 +14,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - FarGalaxy
   - 
   - 
   - 
@@ -42,4 +41,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: FarGalaxy
+    uniqueID: 3532561081
     locked: 0
