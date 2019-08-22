@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6781136387250342324}
   - component: {fileID: 5370568959586348362}
   - component: {fileID: 2306082620560699825}
+  - component: {fileID: 961760503251915939}
   m_Layer: 0
   m_Name: enemyPointer
   m_TagString: Untagged
@@ -138,3 +139,15 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!225 &961760503251915939
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341511887982153177}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0

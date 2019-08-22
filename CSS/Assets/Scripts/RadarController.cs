@@ -19,6 +19,8 @@ public class RadarController : MonoBehaviour
     private float maxRadarCanvasRange = 80;
     private float minRadarCanvasRange = 10;
 
+    private float pointerMaxAlpha = 0.8f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,11 +49,14 @@ public class RadarController : MonoBehaviour
             float newXposition = Utils.convertToNewRange(-maxRadarWorldRange, +maxRadarWorldRange, -maxRadarCanvasRange, maxRadarCanvasRange, enemyPositionX);
             float newYposition = Utils.convertToNewRange(-maxRadarWorldRange, +maxRadarWorldRange, -maxRadarCanvasRange, maxRadarCanvasRange, enemyPositionY);
 
-			enemyPointerList[i].transform.localPosition = new Vector3(newXposition, 0, newYposition);
+			enemyPointerList[i].transform.localPosition = new Vector3(newXposition, 1, newYposition);
 
             // adjust alpha
 
-            //enemyPointerList[i].gameObject.GetComponent<SpriteRenderer>().
+            float distanceToPlayer = Mathf.Clamp (Vector3.Distance(GameManager.Instance.enemyList[i].transform.position, playerShip.transform.position),0,maxRadarWorldRange);
+            float alphaAmount = pointerMaxAlpha - Utils.convertToNewRange(0, maxRadarWorldRange, 0, pointerMaxAlpha, distanceToPlayer);
+
+            enemyPointerList[i].gameObject.GetComponent<CanvasGroup>().alpha = alphaAmount;
 
         }
     }
