@@ -6,28 +6,26 @@ using UnityEngine.UI;
 public class ShipController : MonoBehaviour
 {
 
-
-
     public float speed = 50f;
     public float turnSpeed = 0.5f;
+    
+    public float hoverForce = 65f;
+    public float hoverHeight = 10f;
 
+    public GameObject laserGreenBullet;
+    public GameObject playerBulletsFolder;
 
     private float maxSpeed = 100;
     private float minSpeed = 20;
 
-
-    public float hoverForce = 65f;
-    public float hoverHeight = 10f;
-
-
     private float powerInput;
     private float turnInput;
-
-
+    
     private Rigidbody shipRigidBody;
 
 
     [SerializeField] Text speedText;
+    //[SerializeField] CameraScript myCameraScript;
 
 
 
@@ -42,9 +40,7 @@ public class ShipController : MonoBehaviour
     {
         powerInput = Input.GetAxis("Vertical");
         turnInput = Input.GetAxis("Horizontal");
-
         
-
         speed += powerInput;
 
         if (speed > maxSpeed) { speed = maxSpeed; };
@@ -52,6 +48,13 @@ public class ShipController : MonoBehaviour
 
         speedText.text = "Speed: " + Mathf.RoundToInt(speed).ToString();
 
+        //float testConvertRange = Utils.convertToNewRange(-100, 100, -50, 50, 90);
+        //Debug.Log(testConvertRange.ToString());
+
+        if (Input.GetKeyDown("space"))
+        {
+            Shoot();
+        }
     }
 
 
@@ -79,4 +82,35 @@ public class ShipController : MonoBehaviour
         shipRigidBody.AddRelativeTorque(0f, turnInput * turnSpeed, 0f);
 
     }
+
+    private void Shoot ()
+    {
+        Debug.Log("player has shot");
+
+        GameObject bullet = Instantiate(laserGreenBullet, playerBulletsFolder.transform);
+
+        bullet.transform.position = transform.position;
+        bullet.transform.rotation = transform.rotation;
+
+        /*
+        GameObject bullet = ObjectPooler.SharedInstance.GetPooledObject();
+        if (bullet != null)
+        {
+            bullet.transform.position = transform.position;
+            bullet.transform.rotation = transform.rotation;
+        }*/
+    }
+
+    ////////////////////////////////////////////////////////////
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.tag == "Asteroid" || collision.gameObject.tag == "EnemyShip")
+        {
+            //myCameraScript.TriggerShake();
+        }
+        
+    }
+
+
 }
