@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1431886887}
   - component: {fileID: 1431886889}
-  - component: {fileID: 1431886888}
   - component: {fileID: 1431886890}
   m_Layer: 0
   m_Name: Cam_bg
@@ -76,14 +75,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &1431886888
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1431886886}
-  m_Enabled: 1
 --- !u!114 &1431886890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4835,8 +4826,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2013068269}
-  m_LocalRotation: {x: 0.3174276, y: -0.00000006212022, z: 0.0000001855778, w: 0.94828254}
-  m_LocalPosition: {x: 0, y: 40, z: -45}
+  m_LocalRotation: {x: 0.1508009, y: -0.1119364, z: 0.017188545, w: 0.98205596}
+  m_LocalPosition: {x: 6.6, y: 9.299999, z: -29.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6361421128041305694}
@@ -4865,9 +4856,9 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.1
   far clip plane: 5000
-  field of view: 60
+  field of view: 40
   orthographic: 0
   orthographic size: 5
   m_Depth: 1
@@ -4945,7 +4936,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2040210888
 Transform:
   m_ObjectHideFlags: 0
@@ -4979,7 +4970,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3735972236143955626
 Transform:
   m_ObjectHideFlags: 0
@@ -9696,6 +9687,9 @@ GameObject:
   - component: {fileID: 6360930414628324028}
   - component: {fileID: 7411623323341171581}
   - component: {fileID: 6487998531823455325}
+  - component: {fileID: 2495937083809237584}
+  - component: {fileID: 5067194915136667675}
+  - component: {fileID: 8322889568774300822}
   m_Layer: 0
   m_Name: PlayerShipSergio
   m_TagString: Untagged
@@ -9772,7 +9766,123 @@ MonoBehaviour:
   laserGreenBullet: {fileID: 3638454595672958179, guid: 6edba797ab87d4ef6a97c4feac4e503b,
     type: 3}
   playerBulletsFolder: {fileID: 0}
+  fixedJoystick: {fileID: 0}
   speedText: {fileID: 0}
+--- !u!114 &2495937083809237584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6359940089152530168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2b29544581cbff48a74923442363fb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IgnoreStartedOverGui: 1
+  IgnoreIsOverGui: 0
+  RequiredSelectable: {fileID: 0}
+  CheckAngle: 1
+  Angle: 270
+  AngleThreshold: 90
+  Clamp: 0
+  Multiplier: 1
+  onSwipe:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6487998531823455325}
+        m_MethodName: DodgeLeft
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Lean.Touch.LeanFingerSwipe+LeanFingerEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onSwipeDelta:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Lean.Touch.LeanFingerSwipe+Vector2Event, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &5067194915136667675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6359940089152530168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2b29544581cbff48a74923442363fb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IgnoreStartedOverGui: 1
+  IgnoreIsOverGui: 0
+  RequiredSelectable: {fileID: 0}
+  CheckAngle: 1
+  Angle: 90
+  AngleThreshold: 90
+  Clamp: 0
+  Multiplier: 1
+  onSwipe:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6487998531823455325}
+        m_MethodName: DodgeRight
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Lean.Touch.LeanFingerSwipe+LeanFingerEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onSwipeDelta:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Lean.Touch.LeanFingerSwipe+Vector2Event, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &8322889568774300822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6359940089152530168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7c1c71d8ad5da9438de3b2e5990763f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IgnoreStartedOverGui: 1
+  IgnoreIsOverGui: 0
+  RequiredTapCount: 0
+  RequiredTapInterval: 0
+  RequiredSelectable: {fileID: 0}
+  onTap:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6487998531823455325}
+        m_MethodName: Shoot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Lean.Touch.LeanFingerTap+LeanFingerEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &6360930414051308622
 GameObject:
   m_ObjectHideFlags: 0
@@ -14901,10 +15011,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 47eb3fdd01eb327428cfafbefee8f3bc, type: 2}
-    - target: {fileID: 11400000, guid: 0461f0a9cf356c24b805dfbf38e86450, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 19800002, guid: 0461f0a9cf356c24b805dfbf38e86450, type: 3}
       propertyPath: simulationSpeed
       value: 12
@@ -15068,10 +15174,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 47eb3fdd01eb327428cfafbefee8f3bc, type: 2}
-    - target: {fileID: 11400000, guid: 0461f0a9cf356c24b805dfbf38e86450, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 19800002, guid: 0461f0a9cf356c24b805dfbf38e86450, type: 3}
       propertyPath: simulationSpeed
       value: 12
@@ -15235,10 +15337,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 47eb3fdd01eb327428cfafbefee8f3bc, type: 2}
-    - target: {fileID: 11400000, guid: 0461f0a9cf356c24b805dfbf38e86450, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 19800002, guid: 0461f0a9cf356c24b805dfbf38e86450, type: 3}
       propertyPath: simulationSpeed
       value: 12
