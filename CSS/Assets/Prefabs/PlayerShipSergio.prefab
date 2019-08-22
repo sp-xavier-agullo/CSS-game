@@ -4835,8 +4835,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2013068269}
-  m_LocalRotation: {x: 0.25220814, y: -0.0027871728, z: 0.00072650955, w: 0.9676688}
-  m_LocalPosition: {x: 0, y: 43.34, z: -79}
+  m_LocalRotation: {x: 0.3174276, y: -0.00000006212022, z: 0.0000001855778, w: 0.94828254}
+  m_LocalPosition: {x: 0, y: 40, z: -45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6361421128041305694}
@@ -4867,7 +4867,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 5000
-  field of view: 40
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: 1
@@ -9769,6 +9769,9 @@ MonoBehaviour:
   turnSpeed: 5
   hoverForce: 65
   hoverHeight: 10
+  laserGreenBullet: {fileID: 3638454595672958179, guid: 6edba797ab87d4ef6a97c4feac4e503b,
+    type: 3}
+  playerBulletsFolder: {fileID: 0}
   speedText: {fileID: 0}
 --- !u!1 &6360930414051308622
 GameObject:
@@ -15327,9 +15330,33 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: 9debd342863be9747b5a48c343184a31, type: 3}
+      propertyPath: simulationSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: 9debd342863be9747b5a48c343184a31, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 19900002, guid: 9debd342863be9747b5a48c343184a31, type: 3}
       propertyPath: m_SortingOrder
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 9debd342863be9747b5a48c343184a31, type: 3}
+      propertyPath: simulationSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 9debd342863be9747b5a48c343184a31, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 9debd342863be9747b5a48c343184a31, type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 9debd342863be9747b5a48c343184a31, type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9debd342863be9747b5a48c343184a31, type: 3}

@@ -16511,20 +16511,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3762094081576874731, guid: 3c34e036922c7b648b6452e442170406,
         type: 3}
-      propertyPath: speedText
-      value: 
-      objectReference: {fileID: 2118336531}
-    - target: {fileID: 3762094081576874731, guid: 3c34e036922c7b648b6452e442170406,
-        type: 3}
-      propertyPath: laserGreenBullet
-      value: 
-      objectReference: {fileID: 3638454595672958179, guid: 6edba797ab87d4ef6a97c4feac4e503b,
-        type: 3}
-    - target: {fileID: 3762094081576874731, guid: 3c34e036922c7b648b6452e442170406,
-        type: 3}
       propertyPath: playerBulletsFolder
       value: 
       objectReference: {fileID: 1191263009}
+    - target: {fileID: 3762094081576874731, guid: 3c34e036922c7b648b6452e442170406,
+        type: 3}
+      propertyPath: speedText
+      value: 
+      objectReference: {fileID: 2118336531}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c34e036922c7b648b6452e442170406, type: 3}
 --- !u!4 &8574773107523968243 stripped
