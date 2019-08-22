@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Camera
+  - Asteroid
+  - EnemyShip
+  - LaserGreen
+  - LaserRed
   layers:
   - Default
   - TransparentFX

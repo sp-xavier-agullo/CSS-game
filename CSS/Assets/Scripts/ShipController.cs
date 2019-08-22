@@ -9,12 +9,15 @@ public class ShipController : MonoBehaviour
     public float speed = 50f;
     public float turnSpeed = 0.5f;
     
-    private float maxSpeed = 100;
-    private float minSpeed = 20;
-    
     public float hoverForce = 65f;
     public float hoverHeight = 10f;
-    
+
+    public GameObject laserGreenBullet;
+    public GameObject playerBulletsFolder;
+
+    private float maxSpeed = 100;
+    private float minSpeed = 20;
+
     private float powerInput;
     private float turnInput;
     
@@ -22,7 +25,7 @@ public class ShipController : MonoBehaviour
 
 
     [SerializeField] Text speedText;
-    [SerializeField] CameraScript myCameraScript;
+    //[SerializeField] CameraScript myCameraScript;
 
 
 
@@ -47,6 +50,11 @@ public class ShipController : MonoBehaviour
 
         //float testConvertRange = Utils.convertToNewRange(-100, 100, -50, 50, 90);
         //Debug.Log(testConvertRange.ToString());
+
+        if (Input.GetKeyDown("space"))
+        {
+            Shoot();
+        }
     }
 
 
@@ -75,13 +83,31 @@ public class ShipController : MonoBehaviour
 
     }
 
+    private void Shoot ()
+    {
+        Debug.Log("player has shot");
+
+        GameObject bullet = Instantiate(laserGreenBullet, playerBulletsFolder.transform);
+
+        bullet.transform.position = transform.position;
+        bullet.transform.rotation = transform.rotation;
+
+        /*
+        GameObject bullet = ObjectPooler.SharedInstance.GetPooledObject();
+        if (bullet != null)
+        {
+            bullet.transform.position = transform.position;
+            bullet.transform.rotation = transform.rotation;
+        }*/
+    }
+
     ////////////////////////////////////////////////////////////
 
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "Asteroid" || collision.gameObject.tag == "EnemyShip")
         {
-            myCameraScript.TriggerShake();
+            //myCameraScript.TriggerShake();
         }
         
     }
