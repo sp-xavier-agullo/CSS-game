@@ -34,6 +34,7 @@ public class RadarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+ 
         transform.position = new Vector3(playerShip.transform.position.x, 5, playerShip.transform.position.z);
 
         // Update Pointers

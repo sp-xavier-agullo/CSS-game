@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public GameObject playerShip;
+    public GameObject radarShip;
 
     public List<GameObject> enemyList = new List<GameObject>();
 
@@ -26,5 +27,12 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    // Kill an enemy
+    public void killShipNum (int idNum)
+    {
+        radarShip.GetComponent<RadarController>().enemyPointerList[idNum].SetActive(false);
+        enemyList[idNum].SetActive(false);
     }
 }

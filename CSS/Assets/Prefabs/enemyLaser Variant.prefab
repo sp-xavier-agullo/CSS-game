@@ -10,7 +10,12 @@ PrefabInstance:
     - target: {fileID: 3638454595672958179, guid: 6edba797ab87d4ef6a97c4feac4e503b,
         type: 3}
       propertyPath: m_Name
-      value: enemyLaser Variant (1)
+      value: enemyLaser Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3638454595672958179, guid: 6edba797ab87d4ef6a97c4feac4e503b,
+        type: 3}
+      propertyPath: m_TagString
+      value: LaserRed
       objectReference: {fileID: 0}
     - target: {fileID: 3638454595672958188, guid: 6edba797ab87d4ef6a97c4feac4e503b,
         type: 3}
@@ -72,30 +77,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: LaserRed
       objectReference: {fileID: 0}
-    - target: {fileID: 3638454595794080180, guid: 6edba797ab87d4ef6a97c4feac4e503b,
+    - target: {fileID: 3638454595794080137, guid: 6edba797ab87d4ef6a97c4feac4e503b,
         type: 3}
-      propertyPath: m_CastShadows
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3638454595794080180, guid: 6edba797ab87d4ef6a97c4feac4e503b,
-        type: 3}
-      propertyPath: m_ReceiveShadows
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3638454595794080180, guid: 6edba797ab87d4ef6a97c4feac4e503b,
-        type: 3}
-      propertyPath: m_LightProbeUsage
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3638454595794080180, guid: 6edba797ab87d4ef6a97c4feac4e503b,
-        type: 3}
-      propertyPath: m_ReflectionProbeUsage
-      value: 0
+      propertyPath: m_LocalScale.z
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3638454595794080180, guid: 6edba797ab87d4ef6a97c4feac4e503b,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e9df58b5531644d0f9922a215d5be4e3, type: 2}
+    - target: {fileID: 4974339651132161762, guid: 6edba797ab87d4ef6a97c4feac4e503b,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6edba797ab87d4ef6a97c4feac4e503b, type: 3}
