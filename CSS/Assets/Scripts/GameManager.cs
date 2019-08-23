@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
 
     public List<GameObject> enemyList = new List<GameObject>();
 
+    public GameObject youWinPopup;
+    public GameObject youLosePopup;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -35,4 +38,13 @@ public class GameManager : MonoBehaviour
         radarShip.GetComponent<RadarController>().enemyPointerList[idNum].SetActive(false);
         enemyList[idNum].SetActive(false);
     }
+
+    // Level Win
+    public void levelWin ()
+    {
+        youWinPopup.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+
 }
