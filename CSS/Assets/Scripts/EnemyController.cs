@@ -170,10 +170,12 @@ public class EnemyController : MonoBehaviour
     {
         GameObject bullet = Instantiate(laserRedBullet, playerBulletsFolder.transform);
 
-        bullet.transform.rotation = transform.rotation;
+        //bullet.transform.rotation = transform.rotation;
         bullet.transform.position = transform.position;
 
         Vector3 targetDir = GameManager.Instance.playerShip.transform.position - transform.position;
+
+        bullet.transform.rotation = Quaternion.LookRotation(targetDir, Vector3.up);
 
         bullet.GetComponent<Rigidbody>().AddForce(targetDir * bulletSpeed);
 
@@ -195,7 +197,6 @@ public class EnemyController : MonoBehaviour
             healthPoints--;
 
             Destroy(other.gameObject);
-
 
             //myCameraScript.TriggerShake();
 
