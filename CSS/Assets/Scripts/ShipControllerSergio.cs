@@ -29,6 +29,8 @@ using UnityEngine.Serialization;
 
         private Animator anim;
 
+        private int turnRightIndex;
+
 
         [SerializeField] Text speedText;
         //[SerializeField] CameraScript myCameraScript;
@@ -39,7 +41,8 @@ using UnityEngine.Serialization;
         {
             shipRigidBody = GetComponent<Rigidbody>();
             anim = GetComponentInChildren<Animator>();
-        }
+            turnRightIndex = anim.GetLayerIndex("TurnRight");
+    }
 
         ////////////////////////////////////////////////////////////
         void Update()
@@ -78,6 +81,9 @@ using UnityEngine.Serialization;
                 shipRigidBody.AddForce(appliedHoverForce, ForceMode.Acceleration);
 
             }
+
+        //Turning animation
+            anim.SetLayerWeight(turnRightIndex, turnInput);
 
             //
             //shipRigidBody.AddRelativeForce(0f, 0f, powerInput * speed);
