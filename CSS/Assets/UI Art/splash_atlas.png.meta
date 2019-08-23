@@ -1,16 +1,13 @@
 fileFormatVersion: 2
-guid: d2e4c9ade29e74ab49e6c872f6160bc1
+guid: abeef852713554a0ebdbeffdcd7e1b85
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6523646693532614598
-    second: css_worldCanvas_HUD_0
+      213: -9144976114448666014
+    second: splash_atlas_0
   - first:
-      213: 8275327432056385669
-    second: css_worldCanvas_HUD_1
-  - first:
-      213: 920813762046036111
-    second: css_worldCanvas_HUD_2
+      213: -1077643378119344952
+    second: splash_atlas_1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -41,7 +38,7 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: -1
-    aniso: 0
+    aniso: -1
     mipBias: -100
     wrapU: 1
     wrapV: 1
@@ -71,8 +68,8 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
-    textureCompression: 2
+    textureFormat: -1
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -82,8 +79,8 @@ TextureImporter:
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
-    textureCompression: 2
+    textureFormat: -1
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -93,8 +90,8 @@ TextureImporter:
     buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
-    textureCompression: 2
+    textureFormat: -1
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -104,8 +101,8 @@ TextureImporter:
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
-    textureCompression: 2
+    textureFormat: -1
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -115,13 +112,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: css_worldCanvas_HUD_0
+      name: splash_atlas_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 513
-        width: 512
-        height: 511
+        y: 1011
+        width: 1365
+        height: 1037
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -129,20 +126,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 850a232b3ebef416381d703fcdccce7b
-      internalID: 6523646693532614598
+      spriteID: fecdd4868acf7493ca1f59d3283e346e
+      internalID: -9144976114448666014
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: css_worldCanvas_HUD_1
+      name: splash_atlas_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 376
-        width: 131
-        height: 133
+        x: 1386
+        y: 1913
+        width: 336
+        height: 118
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,29 +147,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a9049576b4714a5593a627ea7dd32b2
-      internalID: 8275327432056385669
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: css_worldCanvas_HUD_2
-      rect:
-        serializedVersion: 2
-        x: 135
-        y: 377
-        width: 99
-        height: 133
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 34642d9b3ae354527b4c361feef8c7e4
-      internalID: 920813762046036111
+      spriteID: 6f922edc586794d55a001947a5c9cb37
+      internalID: -1077643378119344952
       vertices: []
       indices: 
       edges: []
@@ -180,7 +156,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 2df8c9398462b4ce2bbff9fbff04db23
+    spriteID: e2340ccd9f7ee4f649e06fc5c05feed6
     internalID: 0
     vertices: []
     indices: 
