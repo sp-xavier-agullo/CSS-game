@@ -4878,9 +4878,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75dd4fbb1c10547dfbed6ea41fbd0093, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyID: 0
   speed: 50
   turnSpeed: 0.5
-  currentAiMode: 0
+  healthPoints: 3
+  bulletSpeed: 7
+  laserRedBullet: {fileID: 6957989063585633919, guid: b10d732af850a48c48cf7bf504dc7ed1,
+    type: 3}
+  playerBulletsFolder: {fileID: 0}
+  currentAiMode: 1
 --- !u!54 &7870099043714085586
 Rigidbody:
   m_ObjectHideFlags: 0

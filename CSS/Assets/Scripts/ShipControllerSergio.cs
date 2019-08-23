@@ -51,11 +51,11 @@ public class ShipControllerSergio : MonoBehaviour
     void Update()
     {
 
-        /*powerInput = Input.GetAxis("Vertical");
-        turnInput = Input.GetAxis("Horizontal");*/
+        powerInput = Input.GetAxis("Vertical");
+        turnInput = Input.GetAxis("Horizontal");
 
-        powerInput = fixedJoystick.Vertical;
-        turnInput = fixedJoystick.Horizontal;
+        /*powerInput = fixedJoystick.Vertical;
+        turnInput = fixedJoystick.Horizontal;*/
 
         speed += powerInput;
 
@@ -73,6 +73,7 @@ public class ShipControllerSergio : MonoBehaviour
 
         if (healthPoints < 0)
         {
+            GameManager.Instance.levelLose();
             Debug.Log("GAME OVER");
         }
 
@@ -140,11 +141,21 @@ public class ShipControllerSergio : MonoBehaviour
 
     ////////////////////////////////////////////////////////////
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "Asteroid" || collision.gameObject.tag == "EnemyShip")
+        if (other.gameObject.tag == "Asteroid" || other.gameObject.tag == "EnemyShip")
         {
+            healthPoints--;
             //myCameraScript.TriggerShake();
+        }
+
+        if (other.gameObject.tag == "LaserRed")
+        {
+            Debug.Log("playerHit");
+            healthPoints--;
+
+            Destroy(other.gameObject);
+
         }
 
     }
