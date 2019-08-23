@@ -20,6 +20,7 @@ public class ShipControllerSergio : MonoBehaviour
 
     public GameObject laserGreenBullet;
     public GameObject playerBulletsFolder;
+    private GameObject myShip;
 
     private float maxSpeed = 100;
     private float minSpeed = 20;
@@ -37,6 +38,9 @@ public class ShipControllerSergio : MonoBehaviour
 
     [SerializeField] Text speedText;
     [SerializeField] Text healthText;
+    [SerializeField] GameObject shootFlareRight;
+    [SerializeField] GameObject shootFlareLeft;
+    [SerializeField] GameObject explosionShipDead;
     //[SerializeField] CameraScript myCameraScript;
 
 
@@ -45,6 +49,7 @@ public class ShipControllerSergio : MonoBehaviour
     {
         shipRigidBody = GetComponent<Rigidbody>();
         anim = GetComponentInChildren<Animator>();
+        myShip = GameObject.Find("PlayerShipSergio");
     }
 
     ////////////////////////////////////////////////////////////
@@ -67,7 +72,7 @@ public class ShipControllerSergio : MonoBehaviour
 
         if (Input.GetKeyDown("space"))
         {
-            Shoot();
+            healthPoints--;
         }
 
         updateHUD();
@@ -102,6 +107,11 @@ public class ShipControllerSergio : MonoBehaviour
 
         anim.SetFloat("Turn", turnInput);
 
+        if (healthPoints <= 0)
+        {
+            shipDead();
+        }
+
     }
 
     public void Shoot()
@@ -112,12 +122,16 @@ public class ShipControllerSergio : MonoBehaviour
 
         if (activeCannon == 1)
         {
+            shootFlareLeft.SetActive(false);
             bullet.transform.position = transform.position + new Vector3(2, 0, 0);
+            shootFlareRight.SetActive(true);
             activeCannon = 2;
         }
         else if (activeCannon == 2)
         {
+            shootFlareRight.SetActive(false);
             bullet.transform.position = transform.position + new Vector3(-2, 0, 0);
+            shootFlareLeft.SetActive(true);
             activeCannon = 1;
         }
 
@@ -159,5 +173,11 @@ public class ShipControllerSergio : MonoBehaviour
         healthText.text = "Health: " + healthPoints.ToString();
     }
 
+    private void shipDead()
+    {
+        Instantiate(explosionShipDead, transform.position, Quaternion.identity);
+        Destroy(myShip);
+    }
+            
 
 }
