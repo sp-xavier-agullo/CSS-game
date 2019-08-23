@@ -4969,9 +4969,9 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.1490081
   far clip plane: 5000
-  field of view: 40
+  field of view: 50.045017
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -4996,8 +4996,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 165709958}
-  m_LocalRotation: {x: 0.15551554, y: 0.23101625, z: -0.039822783, w: 0.9596148}
-  m_LocalPosition: {x: 0, y: 55.34, z: -79}
+  m_LocalRotation: {x: 0.22600456, y: -0.41661978, z: 0.107741706, w: 0.8739231}
+  m_LocalPosition: {x: 15.589914, y: 24.149544, z: -12.800976}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5175,7 +5175,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 270189166}
-  m_LocalRotation: {x: 0.058386773, y: -0.6686246, z: 0.052796423, w: 0.7394219}
+  m_LocalRotation: {x: 0.058386777, y: -0.6686246, z: 0.05279643, w: 0.73942184}
   m_LocalPosition: {x: 20.65, y: 15.11, z: -2.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -10253,6 +10253,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8888470644510307787}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &545830849 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6384606344128324817, guid: 553b320c09777463abeeb1a6ad0943a9,
+    type: 3}
+  m_PrefabInstance: {fileID: 648606231}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &551620417
 GameObject:
   m_ObjectHideFlags: 0
@@ -10495,6 +10501,68 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 553b320c09777463abeeb1a6ad0943a9, type: 3}
+--- !u!1 &685900518
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 685900520}
+  - component: {fileID: 685900519}
+  m_Layer: 0
+  m_Name: ' shipDeadTimeline'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!320 &685900519
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685900518}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 57b0610b997e4694d8ec047afd3db9b1, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 0
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 7028492902209905904, guid: 57b0610b997e4694d8ec047afd3db9b1, type: 2}
+    value: {fileID: 165709959}
+  - key: {fileID: -2686705644155288483, guid: 57b0610b997e4694d8ec047afd3db9b1, type: 2}
+    value: {fileID: 1073844785}
+  - key: {fileID: 5024705932245184380, guid: 57b0610b997e4694d8ec047afd3db9b1, type: 2}
+    value: {fileID: 545830849}
+  - key: {fileID: 8669932836264754281, guid: 57b0610b997e4694d8ec047afd3db9b1, type: 2}
+    value: {fileID: 0}
+  m_ExposedReferences:
+    m_References:
+    - 183284ee7b53e9047a8c80a6078cc25d: {fileID: 840420247}
+    - b36eaf19bb1d7354da989072d8e44c6d: {fileID: 757550038}
+    - e9cf795b6b9a88c42a8d34f083a2e2ef: {fileID: 757550038}
+    - 79f387c544ed2414db779641c0418507: {fileID: 840420247}
+    - 4005003fb1389d2499052d5db47596aa: {fileID: 270189167}
+    - a3f3b691c34b5b54ebb9a243d520afa4: {fileID: 270189167}
+--- !u!4 &685900520
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685900518}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.1701821, y: 11.719334, z: 1.3515625}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -10647,7 +10715,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 757550036}
-  m_LocalRotation: {x: 0.3174276, y: 0.000000022569019, z: -0.000000007554741, w: 0.94828254}
+  m_LocalRotation: {x: 0.3174276, y: 0.000000022569017, z: -0.00000000755474, w: 0.94828254}
   m_LocalPosition: {x: 0, y: 52, z: -45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -10716,7 +10784,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 840420246}
-  m_LocalRotation: {x: 0.1508009, y: -0.11193697, z: 0.017188637, w: 0.9820559}
+  m_LocalRotation: {x: 0.1508009, y: -0.11193697, z: 0.017188635, w: 0.9820559}
   m_LocalPosition: {x: 6.6, y: 21.3, z: -29.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -10736,7 +10804,7 @@ GameObject:
   - component: {fileID: 854756893}
   - component: {fileID: 854756892}
   m_Layer: 0
-  m_Name: Timeline
+  m_Name: introTimeline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15874,7 +15942,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1073844784}
-  m_LocalRotation: {x: 0.1508009, y: -0.11193697, z: 0.017188637, w: 0.9820559}
+  m_LocalRotation: {x: 0.1508009, y: -0.11193697, z: 0.017188635, w: 0.9820559}
   m_LocalPosition: {x: 6.6, y: 21.3, z: -29.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -16327,13 +16395,24 @@ PrefabInstance:
     - target: {fileID: 6487998531823455325, guid: 3c34e036922c7b648b6452e442170406,
         type: 3}
       propertyPath: healthPoints
-      value: 10
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6487998531823455325, guid: 3c34e036922c7b648b6452e442170406,
         type: 3}
       propertyPath: explosionShipDead
       value: 
       objectReference: {fileID: 100010, guid: d609d5ebc845aca409f72e9c6a56dc60, type: 3}
+    - target: {fileID: 6487998531823455325, guid: 3c34e036922c7b648b6452e442170406,
+        type: 3}
+      propertyPath: shipDeadTimeline
+      value: 
+      objectReference: {fileID: 685900519}
+    - target: {fileID: 6487998531823455325, guid: 3c34e036922c7b648b6452e442170406,
+        type: 3}
+      propertyPath: shipDeadTimeline.m_Asset
+      value: 
+      objectReference: {fileID: 11400000, guid: 57b0610b997e4694d8ec047afd3db9b1,
+        type: 2}
     - target: {fileID: 1636818864, guid: 3c34e036922c7b648b6452e442170406, type: 3}
       propertyPath: m_IsActive
       value: 0

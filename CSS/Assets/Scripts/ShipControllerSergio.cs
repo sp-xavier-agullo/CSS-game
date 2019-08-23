@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Timeline;
 using UnityEngine.UI;
+using UnityEngine.Playables;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
 
@@ -36,11 +38,16 @@ public class ShipControllerSergio : MonoBehaviour
 
     private Animator anim;
 
+    private GameObject[] getCount;
+    private int count;
+
+
     [SerializeField] Text speedText;
     [SerializeField] Text healthText;
     [SerializeField] GameObject shootFlareRight;
     [SerializeField] GameObject shootFlareLeft;
     [SerializeField] GameObject explosionShipDead;
+    [SerializeField] PlayableDirector shipDeadTimeline;
     //[SerializeField] CameraScript myCameraScript;
 
 
@@ -49,7 +56,7 @@ public class ShipControllerSergio : MonoBehaviour
     {
         shipRigidBody = GetComponent<Rigidbody>();
         anim = GetComponentInChildren<Animator>();
-        myShip = GameObject.Find("PlayerShipSergio");
+        myShip = GameObject.Find("myShip");
     }
 
     ////////////////////////////////////////////////////////////
@@ -105,7 +112,9 @@ public class ShipControllerSergio : MonoBehaviour
         //
         shipRigidBody.AddRelativeTorque(0f, turnInput * turnSpeed, 0f);
 
-        anim.SetFloat("Turn", turnInput);
+        if(anim != null)
+
+            anim.SetFloat("Turn", turnInput);
 
         if (healthPoints <= 0)
         {
@@ -175,7 +184,13 @@ public class ShipControllerSergio : MonoBehaviour
 
     private void shipDead()
     {
-        Instantiate(explosionShipDead, transform.position, Quaternion.identity);
+        getCount = GameObject.FindGameObjectsWithTag("DeadExplosion");
+        count = getCount.Length;
+        if (count == 0)
+            {
+            Instantiate(explosionShipDead, transform.position, Quaternion.identity, transform);
+            }
+        shipDeadTimeline.Play();
         Destroy(myShip);
     }
             
