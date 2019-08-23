@@ -92,8 +92,10 @@ using UnityEngine.Serialization;
         public void Shoot()
         {
             Debug.Log("player has shot");
+        anim.SetTrigger("ShootLeft");
+        anim.SetTrigger("ShootRight");
 
-            GameObject bullet = Instantiate(laserGreenBullet, playerBulletsFolder.transform);
+        GameObject bullet = Instantiate(laserGreenBullet, playerBulletsFolder.transform);
 
             bullet.transform.position = transform.position;
             //bullet.AddRelativeForce(0f, 0, 1000, ForceMode.VelocityChange);
