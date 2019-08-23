@@ -9,6 +9,8 @@ TagManager:
   - EnemyShip
   - LaserGreen
   - LaserRed
+  - FxTemporaire
+  - DeadExplosion
   layers:
   - Default
   - TransparentFX
