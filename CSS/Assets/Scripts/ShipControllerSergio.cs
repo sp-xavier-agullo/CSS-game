@@ -57,6 +57,7 @@ public class ShipControllerSergio : MonoBehaviour
         powerInput = fixedJoystick.Vertical;
         turnInput = fixedJoystick.Horizontal;
 
+
         speed += powerInput;
 
         if (speed > maxSpeed) { speed = maxSpeed; };
@@ -98,6 +99,8 @@ public class ShipControllerSergio : MonoBehaviour
 
         //
         shipRigidBody.AddRelativeTorque(0f, turnInput * turnSpeed, 0f);
+
+        anim.SetFloat("Turn", turnInput);
 
     }
 

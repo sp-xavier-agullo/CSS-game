@@ -127,6 +127,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 389775890}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &85243456 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2385880285700447107, guid: 553b320c09777463abeeb1a6ad0943a9,
+    type: 3}
+  m_PrefabInstance: {fileID: 648606231}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &90078957
 GameObject:
   m_ObjectHideFlags: 0
@@ -16025,6 +16037,22 @@ PrefabInstance:
       propertyPath: m_LocalRotation.w
       value: 0.9820559
       objectReference: {fileID: 0}
+    - target: {fileID: 2013068270, guid: 3c34e036922c7b648b6452e442170406, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.1508009
+      objectReference: {fileID: 0}
+    - target: {fileID: 2013068270, guid: 3c34e036922c7b648b6452e442170406, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2013068270, guid: 3c34e036922c7b648b6452e442170406, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.299999
+      objectReference: {fileID: 0}
+    - target: {fileID: 2013068270, guid: 3c34e036922c7b648b6452e442170406, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -29.81
+      objectReference: {fileID: 0}
     - target: {fileID: 6487998531823455325, guid: 3c34e036922c7b648b6452e442170406,
         type: 3}
       propertyPath: playerBulletsFolder
@@ -16040,6 +16068,11 @@ PrefabInstance:
       propertyPath: speedText
       value: 
       objectReference: {fileID: 1120010261}
+    - target: {fileID: 6487998531823455325, guid: 3c34e036922c7b648b6452e442170406,
+        type: 3}
+      propertyPath: healthText
+      value: 
+      objectReference: {fileID: 85243456}
     - target: {fileID: 3829094786650458617, guid: 3c34e036922c7b648b6452e442170406,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -16058,7 +16091,7 @@ PrefabInstance:
     - target: {fileID: 3829094786650458617, guid: 3c34e036922c7b648b6452e442170406,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 3829094786650458617, guid: 3c34e036922c7b648b6452e442170406,
         type: 3}
