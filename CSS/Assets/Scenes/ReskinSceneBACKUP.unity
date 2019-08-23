@@ -10546,7 +10546,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 757550036}
-  m_LocalRotation: {x: 0.3174276, y: -0.00000006212022, z: 0.0000001855778, w: 0.94828254}
+  m_LocalRotation: {x: 0.3174276, y: -0.00000003955075, z: 0.00000017802292, w: 0.94828254}
   m_LocalPosition: {x: 0, y: 52, z: -45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -16467,12 +16467,12 @@ PrefabInstance:
     - target: {fileID: 2385880285718641589, guid: 553b320c09777463abeeb1a6ad0943a9,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 125.29001
+      value: 125.29004
       objectReference: {fileID: 0}
     - target: {fileID: 2385880285718641589, guid: 553b320c09777463abeeb1a6ad0943a9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -42.100006
+      value: -42.100098
       objectReference: {fileID: 0}
     - target: {fileID: 2385880285700447108, guid: 553b320c09777463abeeb1a6ad0943a9,
         type: 3}
@@ -16496,6 +16496,14 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerShipSergio
+      objectReference: {fileID: 0}
+    - target: {fileID: 2013068273, guid: 3c34e036922c7b648b6452e442170406, type: 3}
+      propertyPath: near clip plane
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2013068273, guid: 3c34e036922c7b648b6452e442170406, type: 3}
+      propertyPath: field of view
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 6361421128041305694, guid: 3c34e036922c7b648b6452e442170406,
         type: 3}
@@ -16554,11 +16562,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2013068270, guid: 3c34e036922c7b648b6452e442170406, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000006212022
+      value: -0.00000003955075
       objectReference: {fileID: 0}
     - target: {fileID: 2013068270, guid: 3c34e036922c7b648b6452e442170406, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000001855778
+      value: 0.00000017802292
       objectReference: {fileID: 0}
     - target: {fileID: 2013068270, guid: 3c34e036922c7b648b6452e442170406, type: 3}
       propertyPath: m_LocalRotation.x
@@ -16595,14 +16603,11 @@ PrefabInstance:
       propertyPath: speedText
       value: 
       objectReference: {fileID: 2118336531}
-    - target: {fileID: 2013068273, guid: 3c34e036922c7b648b6452e442170406, type: 3}
-      propertyPath: near clip plane
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2013068273, guid: 3c34e036922c7b648b6452e442170406, type: 3}
-      propertyPath: field of view
-      value: 60
-      objectReference: {fileID: 0}
+    - target: {fileID: 6487998531823455325, guid: 3c34e036922c7b648b6452e442170406,
+        type: 3}
+      propertyPath: healthText
+      value: 
+      objectReference: {fileID: 2102845476}
     - target: {fileID: 3762094081576874731, guid: 3c34e036922c7b648b6452e442170406,
         type: 3}
       propertyPath: speedText
