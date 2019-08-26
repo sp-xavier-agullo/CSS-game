@@ -45,6 +45,9 @@ public class EnemyController : MonoBehaviour
 
     private Rigidbody shipRigidBody;
 
+    [SerializeField] GameObject laserHit;
+
+
 
     ////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////
@@ -331,6 +334,7 @@ public class EnemyController : MonoBehaviour
         {
             healthPoints--;
 
+            Instantiate(laserHit, transform.position, Quaternion.identity, transform);
             Destroy(other.gameObject);
 
             GameManager.Instance.AssignNewEnemyTarget(enemyID);
@@ -348,6 +352,7 @@ public class EnemyController : MonoBehaviour
         {
             healthPoints--;
 
+            Instantiate(laserHit, transform.position, Quaternion.identity, transform);
             Destroy(other.gameObject);
 
             if (healthPoints < 0)

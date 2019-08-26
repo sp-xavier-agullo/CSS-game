@@ -49,6 +49,7 @@ public class ShipControllerSergio : MonoBehaviour
     [SerializeField] GameObject shootFlareRight;
     [SerializeField] GameObject shootFlareLeft;
     [SerializeField] GameObject explosionShipDead;
+    [SerializeField] GameObject laserHit;
     public PlayableDirector shipDeadTimeline;
 
 
@@ -192,6 +193,7 @@ public class ShipControllerSergio : MonoBehaviour
             healthPoints--;
             checkDamage();
 
+            Instantiate(laserHit, transform.position, Quaternion.identity, transform);
             Destroy(other.gameObject);
 
         }

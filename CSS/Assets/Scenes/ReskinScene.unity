@@ -10354,6 +10354,11 @@ PrefabInstance:
       propertyPath: currentAiMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3775464494131958251, guid: 195da4a71d3c5b3479cdda59d47d62b7,
+        type: 3}
+      propertyPath: laserHit
+      value: 
+      objectReference: {fileID: 100010, guid: d609d5ebc845aca409f72e9c6a56dc60, type: 3}
     - target: {fileID: 6476401087189653756, guid: 195da4a71d3c5b3479cdda59d47d62b7,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -10634,6 +10639,11 @@ PrefabInstance:
       propertyPath: currentAiMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3775464494131958251, guid: 195da4a71d3c5b3479cdda59d47d62b7,
+        type: 3}
+      propertyPath: laserHit
+      value: 
+      objectReference: {fileID: 100010, guid: d609d5ebc845aca409f72e9c6a56dc60, type: 3}
     - target: {fileID: 6476401087189653756, guid: 195da4a71d3c5b3479cdda59d47d62b7,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -10912,6 +10922,11 @@ PrefabInstance:
       propertyPath: enemyID
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3775464494131958251, guid: 195da4a71d3c5b3479cdda59d47d62b7,
+        type: 3}
+      propertyPath: laserHit
+      value: 
+      objectReference: {fileID: 100010, guid: d609d5ebc845aca409f72e9c6a56dc60, type: 3}
     - target: {fileID: 6476401087189653756, guid: 195da4a71d3c5b3479cdda59d47d62b7,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -16821,6 +16836,11 @@ PrefabInstance:
       propertyPath: currentAiMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3775464494131958251, guid: 195da4a71d3c5b3479cdda59d47d62b7,
+        type: 3}
+      propertyPath: laserHit
+      value: 
+      objectReference: {fileID: 100010, guid: d609d5ebc845aca409f72e9c6a56dc60, type: 3}
     - target: {fileID: 6476401087189653756, guid: 195da4a71d3c5b3479cdda59d47d62b7,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -17077,6 +17097,11 @@ PrefabInstance:
       propertyPath: currentAiMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3775464494131958251, guid: 195da4a71d3c5b3479cdda59d47d62b7,
+        type: 3}
+      propertyPath: laserHit
+      value: 
+      objectReference: {fileID: 100010, guid: d609d5ebc845aca409f72e9c6a56dc60, type: 3}
     - target: {fileID: 6476401087189653756, guid: 195da4a71d3c5b3479cdda59d47d62b7,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -17376,7 +17401,7 @@ PrefabInstance:
     - target: {fileID: 7140672211972029653, guid: 553b320c09777463abeeb1a6ad0943a9,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 924717283592274499, guid: 553b320c09777463abeeb1a6ad0943a9,
         type: 3}
@@ -17695,5 +17720,10 @@ PrefabInstance:
       propertyPath: playerBulletsFolder
       value: 
       objectReference: {fileID: 1191263009}
+    - target: {fileID: 3775464494131958251, guid: 195da4a71d3c5b3479cdda59d47d62b7,
+        type: 3}
+      propertyPath: laserHit
+      value: 
+      objectReference: {fileID: 100010, guid: d609d5ebc845aca409f72e9c6a56dc60, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 195da4a71d3c5b3479cdda59d47d62b7, type: 3}
