@@ -48,7 +48,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!135 &3088067857219026242
 SphereCollider:
@@ -14455,6 +14455,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7164228919918919389}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 6fd17a044f4faa94ead68722c4678e57,
+        type: 3}
+      propertyPath: m_Name
+      value: SpaceshipRigged
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 6fd17a044f4faa94ead68722c4678e57,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14510,11 +14515,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 6fd17a044f4faa94ead68722c4678e57,
-        type: 3}
-      propertyPath: m_Name
-      value: SpaceshipRigged
-      objectReference: {fileID: 0}
     - target: {fileID: -635839988826460514, guid: 6fd17a044f4faa94ead68722c4678e57,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -14550,6 +14550,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5476488739973526519}
     m_Modifications:
+    - target: {fileID: 100000, guid: 0461f0a9cf356c24b805dfbf38e86450, type: 3}
+      propertyPath: m_Name
+      value: WFXMR_SmokeGrenade Black
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0461f0a9cf356c24b805dfbf38e86450, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.31
@@ -14593,10 +14597,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 0461f0a9cf356c24b805dfbf38e86450, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 0461f0a9cf356c24b805dfbf38e86450, type: 3}
-      propertyPath: m_Name
-      value: WFXMR_SmokeGrenade Black
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: 0461f0a9cf356c24b805dfbf38e86450, type: 3}
       propertyPath: simulationSpeed
@@ -14713,6 +14713,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5476488739973526519}
     m_Modifications:
+    - target: {fileID: 100000, guid: 0461f0a9cf356c24b805dfbf38e86450, type: 3}
+      propertyPath: m_Name
+      value: WFXMR_SmokeGrenade Black (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0461f0a9cf356c24b805dfbf38e86450, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.02
@@ -14768,10 +14772,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 0461f0a9cf356c24b805dfbf38e86450, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 0461f0a9cf356c24b805dfbf38e86450, type: 3}
-      propertyPath: m_Name
-      value: WFXMR_SmokeGrenade Black (1)
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: 0461f0a9cf356c24b805dfbf38e86450, type: 3}
       propertyPath: simulationSpeed
@@ -14888,6 +14888,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9212310444566534293}
     m_Modifications:
+    - target: {fileID: 100000, guid: 0461f0a9cf356c24b805dfbf38e86450, type: 3}
+      propertyPath: m_Name
+      value: WFXMR_SmokeGrenade Black
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0461f0a9cf356c24b805dfbf38e86450, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.31
@@ -14931,10 +14935,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 0461f0a9cf356c24b805dfbf38e86450, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 0461f0a9cf356c24b805dfbf38e86450, type: 3}
-      propertyPath: m_Name
-      value: WFXMR_SmokeGrenade Black
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: 0461f0a9cf356c24b805dfbf38e86450, type: 3}
       propertyPath: simulationSpeed
@@ -15051,6 +15051,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5476488739973526519}
     m_Modifications:
+    - target: {fileID: 100002, guid: 9debd342863be9747b5a48c343184a31, type: 3}
+      propertyPath: m_Name
+      value: WFXMR_FlameThrower Looped
+      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 9debd342863be9747b5a48c343184a31, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.28
@@ -15106,10 +15110,6 @@ PrefabInstance:
     - target: {fileID: 400002, guid: 9debd342863be9747b5a48c343184a31, type: 3}
       propertyPath: m_LocalScale.z
       value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100002, guid: 9debd342863be9747b5a48c343184a31, type: 3}
-      propertyPath: m_Name
-      value: WFXMR_FlameThrower Looped
       objectReference: {fileID: 0}
     - target: {fileID: 19900002, guid: 9debd342863be9747b5a48c343184a31, type: 3}
       propertyPath: m_SortingOrder

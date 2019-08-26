@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     public GameObject youWinPopup;
     public GameObject youLosePopup;
 
+    public GameObject explosionShip;
+
     public int numShooters;
 
     private GameObject activeEnemyTarget;

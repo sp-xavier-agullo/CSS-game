@@ -32,6 +32,7 @@ public class WingmanController : MonoBehaviour
     private float turnInput;
 
     private float distanceToTarget;
+    private float maxHealthPoints;
 
     private GameObject targetEnemy;
 
@@ -55,6 +56,7 @@ public class WingmanController : MonoBehaviour
     void Start()
     {
         randomDestination = setRandomDestination();
+        maxHealthPoints = healthPoints;
 
         SelectBehavior ();
     }
@@ -287,7 +289,36 @@ public class WingmanController : MonoBehaviour
 
         }
 
+        checkDamage();
+
     }
+
+    ////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////
+
+    private void checkDamage()
+    {
+        if (healthPoints < (maxHealthPoints / 2))
+        {
+
+            transform.GetChild(0).transform.GetChild(4).gameObject.SetActive(true);
+            transform.GetChild(0).transform.GetChild(5).gameObject.SetActive(false);
+        }
+
+        if (healthPoints < (maxHealthPoints / 3))
+        {
+            transform.GetChild(0).transform.GetChild(4).gameObject.SetActive(false);
+            transform.GetChild(0).transform.GetChild(5).gameObject.SetActive(true);
+        }
+
+        /*if (healthPoints < 0)
+        {
+            transform.GetChild(0).transform.GetChild(4).gameObject.SetActive(false);
+            transform.GetChild(0).transform.GetChild(5).gameObject.SetActive(false);
+        }*/
+
+    }
+
 
     ////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////
@@ -310,7 +341,12 @@ public class WingmanController : MonoBehaviour
 
         transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
 
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(4);
+
+        GameObject newExplosion = Instantiate(GameManager.Instance.explosionShip, transform.position, Quaternion.identity);
+        newExplosion.transform.localScale = new Vector3(4, 4, 4);
+        Destroy(newExplosion, 5f);
+
         transform.gameObject.SetActive(false);
     }
 

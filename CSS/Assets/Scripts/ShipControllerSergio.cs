@@ -42,7 +42,7 @@ public class ShipControllerSergio : MonoBehaviour
 
     private GameObject[] getCount;
     private int count;
-
+    private float maxHealthPoints;
 
     [SerializeField] Text speedText;
     [SerializeField] Text healthText;
@@ -58,6 +58,7 @@ public class ShipControllerSergio : MonoBehaviour
         shipRigidBody = GetComponent<Rigidbody>();
         anim = GetComponentInChildren<Animator>();
         myShip = GameObject.Find("myShip");
+        maxHealthPoints = healthPoints;
     }
 
     ////////////////////////////////////////////////////////////
@@ -181,6 +182,7 @@ public class ShipControllerSergio : MonoBehaviour
         if (other.gameObject.tag == "Asteroid" || other.gameObject.tag == "EnemyShip")
         {
             healthPoints--;
+            checkDamage();
 
         }
 
@@ -188,6 +190,7 @@ public class ShipControllerSergio : MonoBehaviour
         {
             Debug.Log("playerHit");
             healthPoints--;
+            checkDamage();
 
             Destroy(other.gameObject);
 
@@ -213,6 +216,28 @@ public class ShipControllerSergio : MonoBehaviour
         shipDeadTimeline.Play();
         Destroy(myShip);
     }
-            
+
+    ////////////////////////////////////////////////////////////
+    private void checkDamage()
+    {
+        if (healthPoints < (maxHealthPoints/2))
+        {
+            transform.GetChild(0).GetChild(5).gameObject.SetActive(true);
+            transform.GetChild(0).GetChild(6).gameObject.SetActive(false);
+        }
+
+        if (healthPoints < (maxHealthPoints / 3))
+        {
+            transform.GetChild(0).GetChild(5).gameObject.SetActive(false);
+            transform.GetChild(0).GetChild(6).gameObject.SetActive(true);
+        }
+
+        if (healthPoints < 0)
+        {
+            transform.GetChild(0).GetChild(5).gameObject.SetActive(false);
+            transform.GetChild(0).GetChild(6).gameObject.SetActive(false);
+        }
+
+    }
 
 }
