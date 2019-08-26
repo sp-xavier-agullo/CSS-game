@@ -9557,7 +9557,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 1
-  m_AngularDrag: 1
+  m_AngularDrag: 5
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -9591,7 +9591,7 @@ MonoBehaviour:
   useKeyboard: 1
   healthPoints: 20
   speed: 50
-  turnSpeed: 5
+  turnSpeed: 15
   hoverForce: 65
   hoverHeight: 10
   bulletSpeed: 1000
@@ -14647,6 +14647,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1636818865}
     m_Modifications:
+    - target: {fileID: 100000, guid: cdf14baff693fbc439f8c859529a63a6, type: 3}
+      propertyPath: m_Name
+      value: WFXMR_MF FPS RIFLE2
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cdf14baff693fbc439f8c859529a63a6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -14703,10 +14707,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: cdf14baff693fbc439f8c859529a63a6, type: 3}
-      propertyPath: m_Name
-      value: WFXMR_MF FPS RIFLE2
-      objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: cdf14baff693fbc439f8c859529a63a6, type: 3}
       propertyPath: lengthInSec
       value: 0.05
@@ -14720,22 +14720,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: cdf14baff693fbc439f8c859529a63a6, type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800002, guid: cdf14baff693fbc439f8c859529a63a6, type: 3}
-      propertyPath: lengthInSec
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800002, guid: cdf14baff693fbc439f8c859529a63a6, type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800002, guid: cdf14baff693fbc439f8c859529a63a6, type: 3}
-      propertyPath: InitialModule.maxNumParticles
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800002, guid: cdf14baff693fbc439f8c859529a63a6, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 50
       objectReference: {fileID: 0}
@@ -14776,6 +14760,22 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 19800004, guid: cdf14baff693fbc439f8c859529a63a6, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: cdf14baff693fbc439f8c859529a63a6, type: 3}
+      propertyPath: lengthInSec
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: cdf14baff693fbc439f8c859529a63a6, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: cdf14baff693fbc439f8c859529a63a6, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: cdf14baff693fbc439f8c859529a63a6, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 50
       objectReference: {fileID: 0}
@@ -15485,6 +15485,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5910087876478043221}
     m_Modifications:
+    - target: {fileID: 100000, guid: cdf14baff693fbc439f8c859529a63a6, type: 3}
+      propertyPath: m_Name
+      value: WFXMR_MF FPS RIFLE2
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cdf14baff693fbc439f8c859529a63a6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -15541,10 +15545,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: cdf14baff693fbc439f8c859529a63a6, type: 3}
-      propertyPath: m_Name
-      value: WFXMR_MF FPS RIFLE2
-      objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: cdf14baff693fbc439f8c859529a63a6, type: 3}
       propertyPath: lengthInSec
       value: 0.05
@@ -15558,22 +15558,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: cdf14baff693fbc439f8c859529a63a6, type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800002, guid: cdf14baff693fbc439f8c859529a63a6, type: 3}
-      propertyPath: lengthInSec
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800002, guid: cdf14baff693fbc439f8c859529a63a6, type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800002, guid: cdf14baff693fbc439f8c859529a63a6, type: 3}
-      propertyPath: InitialModule.maxNumParticles
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800002, guid: cdf14baff693fbc439f8c859529a63a6, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 50
       objectReference: {fileID: 0}
@@ -15614,6 +15598,22 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 19800004, guid: cdf14baff693fbc439f8c859529a63a6, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: cdf14baff693fbc439f8c859529a63a6, type: 3}
+      propertyPath: lengthInSec
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: cdf14baff693fbc439f8c859529a63a6, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: cdf14baff693fbc439f8c859529a63a6, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: cdf14baff693fbc439f8c859529a63a6, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 50
       objectReference: {fileID: 0}
