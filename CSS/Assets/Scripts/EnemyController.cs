@@ -19,7 +19,7 @@ public class EnemyController : MonoBehaviour
 
     private float maxSpeed = 80;
     private float minSpeed = 30;
-    private float aheadAngle = 30;
+    private float aheadAngle = 35;
 
     private float stunTime = 1;
     private float stunCycleTimer = 6;
@@ -31,9 +31,13 @@ public class EnemyController : MonoBehaviour
     private float powerInput;
     private float turnInput;
 
-    private enum AiMode { ChasePlayer, RoamAround, isDead };
+    private float distanceToPlayer;
 
-    [SerializeField] AiMode currentAiMode;
+    private Vector3 randomDestination;
+
+    public enum AiMode { ChasePlayer, RoamAround, isDead };
+
+    public AiMode currentAiMode;
 
     private Rigidbody shipRigidBody;
 
@@ -46,6 +50,11 @@ public class EnemyController : MonoBehaviour
 
     }
 
+    void Start()
+    {
+        randomDestination = setRandomDestination();
+    }
+
     ////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////
     void Update()
@@ -53,15 +62,17 @@ public class EnemyController : MonoBehaviour
 
         if (currentAiMode == AiMode.ChasePlayer)
         {
+
+            distanceToPlayer = Vector3.Distance(transform.position, GameManager.Instance.playerShip.transform.position);
+            //Debug.Log("ship number: " + enemyID + "distance is: " + distanceToPlayer);
+
             Vector3 targetDir = GameManager.Instance.playerShip.transform.position - transform.position;
             float angle = Vector3.Angle(targetDir, transform.forward);
 
 
             if (stunCycleTimer < stunTime) // Enemy pilot is stoned
             {
-
                 turnInput = 0;
-
             }
 
             else // Rotate towards player
@@ -71,33 +82,66 @@ public class EnemyController : MonoBehaviour
 
                 if (relativePoint.x < -0.0 && turnInput < 1) // Object is to the left
                 {
-
                     turnInput -= turnSpeed;
-
                 }
                 else if (relativePoint.x > 0.0 && turnInput > -1) // Object is to the right
                 {
-                    
                     turnInput += turnSpeed;
-
                 }
 
                 if (angle < aheadAngle) // Enemy facing player
                 {
-                    //turnSpeed = 0.05f;
-
                     turnInput = 0;
 
                     int shootRollDice = Random.Range(0, 100);
 
-                    if (shootRollDice < 5)
+                    if (shootRollDice < 5 && distanceToPlayer < 300 )
                     {
                         Shoot();
                     }
-
                 }
+            }
+
+        }
+
+
+        if (currentAiMode == AiMode.RoamAround)
+        {
+            Vector3 targetDir = randomDestination - transform.position;
+            float angle = Vector3.Angle(targetDir, transform.forward);
+
+
+            if (stunCycleTimer < stunTime) // Enemy pilot is stoned
+            {
+                turnInput = 0;
 
             }
+
+            else // Rotate towards target
+            {
+
+                Vector3 relativePoint = transform.InverseTransformPoint(GameManager.Instance.playerShip.transform.position);
+
+                if (relativePoint.x < -0.0 && turnInput < 1) // Object is to the left
+                {
+                    turnInput -= turnSpeed;
+                }
+                else if (relativePoint.x > 0.0 && turnInput > -1) // Object is to the right
+                {
+                    turnInput += turnSpeed;
+                }
+            }
+
+            if (angle < aheadAngle) // Enemy facing target
+            {
+                turnInput = 0;
+            }
+
+        }
+
+        if (currentAiMode == AiMode.isDead)
+        {
+            // Nothing here
 
         }
 
@@ -125,7 +169,9 @@ public class EnemyController : MonoBehaviour
         {
             stunCycleTimer = Random.Range(stunCycleMinTime, stunCycleMaxTime);
 
-            Debug.Log("enemy player stunned for: " + stunCycleTimer.ToString() + " seconds");
+            randomDestination = setRandomDestination();
+
+            //Debug.Log("enemy player stunned for: " + stunCycleTimer.ToString() + " seconds");
 
         }
 
@@ -166,11 +212,27 @@ public class EnemyController : MonoBehaviour
     ////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////
 
+    private Vector3 setRandomDestination ()
+    {
+        float newX = Random.Range(-500, 500);
+        float newY = transform.position.y;
+        float newZ = Random.Range(-500, 500);
+
+        Vector3 newRandomDestination = new Vector3(newX, newY, newZ);
+
+        //Debug.Log("new random destination is: " + newRandomDestination.ToString());
+
+        return newRandomDestination;
+
+    }
+
+    ////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////
+
     private void Shoot ()
     {
         GameObject bullet = Instantiate(laserRedBullet, playerBulletsFolder.transform);
 
-        //bullet.transform.rotation = transform.rotation;
         bullet.transform.position = transform.position;
 
         Vector3 targetDir = GameManager.Instance.playerShip.transform.position - transform.position;
@@ -178,8 +240,6 @@ public class EnemyController : MonoBehaviour
         bullet.transform.rotation = Quaternion.LookRotation(targetDir, Vector3.up);
 
         bullet.GetComponent<Rigidbody>().AddForce(targetDir * bulletSpeed);
-
-        //bullet.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed);
 
         Destroy(bullet, 3);
 
@@ -193,7 +253,7 @@ public class EnemyController : MonoBehaviour
     {
         if (other.gameObject.tag == "LaserGreen")
         {
-            Debug.Log("enemyHit");
+            //Debug.Log("enemyHit");
             healthPoints--;
 
             Destroy(other.gameObject);
@@ -209,7 +269,7 @@ public class EnemyController : MonoBehaviour
 
     IEnumerator DieSequence ()
     {
-        Debug.Log("Ship is dead");
+        //Debug.Log("Ship is dead");
         speed = 0;
         currentAiMode = AiMode.isDead;
 
@@ -221,7 +281,6 @@ public class EnemyController : MonoBehaviour
         transform.GetComponent<Rigidbody>().AddExplosionForce(100, transform.position + new Vector3 (0,0,2), 10);
 
         transform.GetComponent<Rigidbody>().useGravity = true;
-        //transform.GetComponent<Rigidbody>().drag = 0;
         transform.GetComponent<Rigidbody>().angularDrag = 0;
 
         transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;

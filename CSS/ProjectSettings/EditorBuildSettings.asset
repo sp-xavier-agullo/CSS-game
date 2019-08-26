@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/LoadingScene.unity
     guid: 1b935d5c0215c4e85aa80db9401eec94
   - enabled: 1
-    path: Assets/Scenes/ReskinScene.unity
-    guid: ea9ff047507f64d6db2659a60b55ea52
+    path: Assets/Scenes/ReskinSceneBACKUP.unity
+    guid: 77bf9505f111745ce96da4860e7853c4
   m_configObjects: {}
