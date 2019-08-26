@@ -17,6 +17,9 @@ TextureImporter:
   - first:
       213: 5295107089896753774
     second: css_worldCanvas_HUD_4
+  - first:
+      213: 8511307008745926948
+    second: css_worldCanvas_HUD_5
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -221,6 +224,27 @@ TextureImporter:
       bones: []
       spriteID: 667d89852541b4b11b9a3641987a3d6b
       internalID: 5295107089896753774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: css_worldCanvas_HUD_5
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 873
+        width: 186
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2fa589abe6d445df8210432bb1ab6e3
+      internalID: 8511307008745926948
       vertices: []
       indices: 
       edges: []

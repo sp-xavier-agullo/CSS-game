@@ -34,7 +34,7 @@ public class EnemyController : MonoBehaviour
     private float turnInput;
 
     private float distanceToTarget;
-    private float maxHealthPoints;
+    public float maxHealthPoints;
 
     private Vector3 randomDestination;
     private GameObject assignedTargetWingman;
