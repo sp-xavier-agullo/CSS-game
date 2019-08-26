@@ -119,7 +119,7 @@ public class GameManager : MonoBehaviour
 
             EnemyController myEnemyController = enemyList[enemyID].GetComponent<EnemyController>();
 
-            targetEnemyHUD[1].GetComponent<Text>().text = myEnemyController.healthPoints.ToString() + "/" + myEnemyController.maxHealthPoints.ToString();
+            targetEnemyHUD[1].GetComponent<Text>().text = "HP: " + myEnemyController.healthPoints.ToString() + "/" + myEnemyController.maxHealthPoints.ToString();
             targetEnemyHUD[2].GetComponent<Text>().text = "Blue Bull " + enemyID.ToString();
         }
 
