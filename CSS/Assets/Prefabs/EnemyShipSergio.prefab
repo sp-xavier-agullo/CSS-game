@@ -4892,6 +4892,7 @@ MonoBehaviour:
   playerBulletsFolder: {fileID: 0}
   maxHealthPoints: 0
   currentAiMode: 1
+  laserHit: {fileID: 100010, guid: 7f286745542804344a15781d640d27be, type: 3}
 --- !u!54 &7870099043714085586
 Rigidbody:
   m_ObjectHideFlags: 0

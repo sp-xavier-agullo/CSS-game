@@ -45,10 +45,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radarBaseCanvas: {fileID: 2214410066473552623}
-  enemyPointer: {fileID: 1341511887982153177, guid: ec51aaf0927454285b12e1c260652571,
+  radarPointer: {fileID: 1341511887982153177, guid: ec51aaf0927454285b12e1c260652571,
     type: 3}
   playerShip: {fileID: 0}
   enemyPointerList: []
+  alliesPointerList: []
+  radarPointerArrowRed: {fileID: 8275327432056385669, guid: d2e4c9ade29e74ab49e6c872f6160bc1,
+    type: 3}
+  radarPointerArrowYellow: {fileID: 5295107089896753774, guid: d2e4c9ade29e74ab49e6c872f6160bc1,
+    type: 3}
+  radarPointerArrowGreen: {fileID: -3484274934101193739, guid: d2e4c9ade29e74ab49e6c872f6160bc1,
+    type: 3}
 --- !u!1 &8556883725347915044
 GameObject:
   m_ObjectHideFlags: 0
