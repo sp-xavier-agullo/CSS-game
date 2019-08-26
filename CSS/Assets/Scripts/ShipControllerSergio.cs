@@ -10,6 +10,8 @@ using UnityEngine.Serialization;
 public class ShipControllerSergio : MonoBehaviour
 {
 
+    public bool useKeyboard;
+
     public float healthPoints;
 
     public float speed = 50f;
@@ -47,8 +49,7 @@ public class ShipControllerSergio : MonoBehaviour
     [SerializeField] GameObject shootFlareRight;
     [SerializeField] GameObject shootFlareLeft;
     [SerializeField] GameObject explosionShipDead;
-    [SerializeField] PlayableDirector shipDeadTimeline;
-    //[SerializeField] CameraScript myCameraScript;
+    public PlayableDirector shipDeadTimeline;
 
 
     ////////////////////////////////////////////////////////////
@@ -62,13 +63,17 @@ public class ShipControllerSergio : MonoBehaviour
     ////////////////////////////////////////////////////////////
     void Update()
     {
+        if (useKeyboard)
+        {
+            powerInput = Input.GetAxis("Vertical");
+            turnInput = Input.GetAxis("Horizontal");
+        }
 
-        /*powerInput = Input.GetAxis("Vertical");
-        turnInput = Input.GetAxis("Horizontal");*/
-
-        powerInput = fixedJoystick.Vertical;
-        turnInput = fixedJoystick.Horizontal;
-
+        if (!useKeyboard)
+        {
+            powerInput = fixedJoystick.Vertical;
+            turnInput = fixedJoystick.Horizontal;
+        }
 
         speed += powerInput;
 
@@ -79,6 +84,13 @@ public class ShipControllerSergio : MonoBehaviour
 
         if (Input.GetKeyDown("space"))
         {
+            if (healthPoints>1)
+            {
+                healthPoints = 1;
+            } else
+            {
+
+            }
             healthPoints--;
         }
 
@@ -86,7 +98,10 @@ public class ShipControllerSergio : MonoBehaviour
 
         if (healthPoints < 0)
         {
+            GameManager.Instance.levelLose();
             Debug.Log("GAME OVER");
+
+            shipDead();
         }
 
     }
@@ -115,11 +130,6 @@ public class ShipControllerSergio : MonoBehaviour
         if(anim != null)
 
             anim.SetFloat("Turn", turnInput);
-
-        if (healthPoints <= 0)
-        {
-            shipDead();
-        }
 
     }
 
@@ -166,11 +176,21 @@ public class ShipControllerSergio : MonoBehaviour
 
     ////////////////////////////////////////////////////////////
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "Asteroid" || collision.gameObject.tag == "EnemyShip")
+        if (other.gameObject.tag == "Asteroid" || other.gameObject.tag == "EnemyShip")
         {
-            //myCameraScript.TriggerShake();
+            healthPoints--;
+
+        }
+
+        if (other.gameObject.tag == "LaserRed")
+        {
+            Debug.Log("playerHit");
+            healthPoints--;
+
+            Destroy(other.gameObject);
+
         }
 
     }

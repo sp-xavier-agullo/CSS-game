@@ -9,6 +9,6 @@ public class LoadingScreenControl : MonoBehaviour
 {
     public void OnClickedPlay()
     {
-        SceneManager.LoadScene("ReskinSceneBACKUP");
+        SceneManager.LoadScene("ReskinScene");
     }
 }

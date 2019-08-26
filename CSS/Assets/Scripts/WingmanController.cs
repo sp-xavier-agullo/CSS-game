@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class EnemyController : MonoBehaviour
+public class WingmanController : MonoBehaviour
 {
-    public int enemyID;
+    public int wingmanID;
 
     public float speed = 50f;
     public float turnSpeed;
@@ -14,12 +14,12 @@ public class EnemyController : MonoBehaviour
 
     public float bulletSpeed;
 
-    public GameObject laserRedBullet;
+    public GameObject laserGreenBullet;
     public GameObject playerBulletsFolder;
 
     private float maxSpeed = 80;
     private float minSpeed = 30;
-    private float aheadAngle = 35;
+    private float aheadAngle = 25;
 
     private float stunTime = 1;
     private float stunCycleTimer = 6;
@@ -33,12 +33,13 @@ public class EnemyController : MonoBehaviour
 
     private float distanceToTarget;
 
+    private GameObject targetEnemy;
+
     private Vector3 randomDestination;
-    private GameObject assignedTargetWingman;
 
-    public enum AiMode { ChasePlayer, RoamAround, ChaseWingman, isDead };
+    public enum AiMode { ChaseEnemy, RoamAround, isDead };
 
-    public AiMode currentAiMode = AiMode.RoamAround;
+    public AiMode currentAiMode;
 
     private Rigidbody shipRigidBody;
 
@@ -54,7 +55,29 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         randomDestination = setRandomDestination();
-        assignedTargetWingman = GameManager.Instance.SelectWingman();
+
+        SelectBehavior ();
+    }
+
+    ////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////
+    void SelectBehavior () {
+
+        int randomNumber = Random.Range(0,2);
+
+        switch (randomNumber) {
+
+            case 0: case 1:
+            currentAiMode = AiMode.ChaseEnemy;
+            targetEnemy = GameManager.Instance.SelectTarget();
+            break;
+
+            case 2: default:
+            currentAiMode = AiMode.RoamAround;
+            break;
+
+        }
+
     }
 
     ////////////////////////////////////////////////////////////
@@ -62,24 +85,29 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
 
-        if (currentAiMode == AiMode.ChasePlayer)
+        if (currentAiMode == AiMode.ChaseEnemy)
         {
 
-            distanceToTarget = Vector3.Distance(transform.position, GameManager.Instance.playerShip.transform.position);
+            if (targetEnemy == null || !targetEnemy.activeSelf)
+            {
+                SelectBehavior();
 
-            Vector3 targetDir = GameManager.Instance.playerShip.transform.position - transform.position;
+            }
+
+            distanceToTarget = Vector3.Distance(transform.position, targetEnemy.transform.position);
+
+            Vector3 targetDir = targetEnemy.transform.position - transform.position;
             float angle = Vector3.Angle(targetDir, transform.forward);
 
-
-            if (stunCycleTimer < stunTime) // Enemy pilot is stoned
+            if (stunCycleTimer < stunTime) // Wingman pilot is stoned
             {
                 turnInput = 0;
             }
 
-            else // Rotate towards player
+            else // Rotate towards target enemy
             {
 
-                Vector3 relativePoint = transform.InverseTransformPoint(GameManager.Instance.playerShip.transform.position);
+                Vector3 relativePoint = transform.InverseTransformPoint(targetEnemy.transform.position);
 
                 if (relativePoint.x < -0.0 && turnInput < 1) // Object is to the left
                 {
@@ -90,84 +118,35 @@ public class EnemyController : MonoBehaviour
                     turnInput += turnSpeed;
                 }
 
-                if (angle < aheadAngle) // Enemy facing player
+                if (angle < aheadAngle) // Wingman facing target enemy
                 {
                     turnInput = 0;
 
                     int shootRollDice = Random.Range(0, 100);
 
-                    if (shootRollDice < 5 && distanceToTarget < 300)
+                    if (shootRollDice < 4 && distanceToTarget < 300 )
                     {
-                        Shoot(GameManager.Instance.playerShip);
+                        Shoot();
                     }
                 }
             }
 
         }
 
-        // Chase Wingman
-        if (currentAiMode == AiMode.ChaseWingman)
-        {
 
-            if (assignedTargetWingman == null || !assignedTargetWingman.activeSelf)
-            {
-                currentAiMode = AiMode.RoamAround;
-            }
-
-            distanceToTarget = Vector3.Distance(transform.position, assignedTargetWingman.transform.position);
-
-            Vector3 targetDir = assignedTargetWingman.transform.position - transform.position;
-            float angle = Vector3.Angle(targetDir, transform.forward);
-
-
-            if (stunCycleTimer < stunTime) // Enemy pilot is stoned
-            {
-                turnInput = 0;
-            }
-
-            else // Rotate towards target
-            {
-
-                Vector3 relativePoint = transform.InverseTransformPoint(assignedTargetWingman.transform.position);
-
-                if (relativePoint.x < -0.0 && turnInput < 1) // Object is to the left
-                {
-                    turnInput -= turnSpeed;
-                }
-                else if (relativePoint.x > 0.0 && turnInput > -1) // Object is to the right
-                {
-                    turnInput += turnSpeed;
-                }
-
-                if (angle < aheadAngle) // Enemy facing target
-                {
-                    turnInput = 0;
-
-                    int shootRollDice = Random.Range(0, 100);
-
-                    if (shootRollDice < 5 && distanceToTarget < 300)
-                    {
-                        Shoot(assignedTargetWingman);
-                    }
-                }
-            }
-
-        }
-
-        // Roam Around
         if (currentAiMode == AiMode.RoamAround)
         {
             Vector3 targetDir = randomDestination - transform.position;
             float angle = Vector3.Angle(targetDir, transform.forward);
 
 
-            if (stunCycleTimer < stunTime) // Enemy pilot is stoned
+            if (stunCycleTimer < stunTime) // Wingman pilot is stoned
             {
                 turnInput = 0;
 
             }
 
-            else // Rotate towards target
+            else // Rotate towards target enemy
             {
 
                 Vector3 relativePoint = transform.InverseTransformPoint(GameManager.Instance.playerShip.transform.position);
@@ -220,8 +199,7 @@ public class EnemyController : MonoBehaviour
             stunCycleTimer = Random.Range(stunCycleMinTime, stunCycleMaxTime);
 
             randomDestination = setRandomDestination();
-
-            //Debug.Log("enemy player stunned for: " + stunCycleTimer.ToString() + " seconds");
+            SelectBehavior ();
 
         }
 
@@ -231,7 +209,7 @@ public class EnemyController : MonoBehaviour
         {
 
             StartCoroutine("DieSequence");
-
+            
         }
 
     }
@@ -262,15 +240,13 @@ public class EnemyController : MonoBehaviour
     ////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////
 
-    private Vector3 setRandomDestination()
+    private Vector3 setRandomDestination ()
     {
         float newX = Random.Range(-500, 500);
         float newY = transform.position.y;
         float newZ = Random.Range(-500, 500);
 
         Vector3 newRandomDestination = new Vector3(newX, newY, newZ);
-
-        //Debug.Log("new random destination is: " + newRandomDestination.ToString());
 
         return newRandomDestination;
 
@@ -279,20 +255,19 @@ public class EnemyController : MonoBehaviour
     ////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////
 
-    private void Shoot(GameObject targetObject)
+    private void Shoot ()
     {
-        GameObject bullet = Instantiate(laserRedBullet, playerBulletsFolder.transform);
+        GameObject bullet = Instantiate(laserGreenBullet, playerBulletsFolder.transform);
 
         bullet.transform.position = transform.position;
 
-        Vector3 targetDir = targetObject.transform.position - transform.position;
+        Vector3 targetDir = targetEnemy.transform.position - transform.position;
 
         bullet.transform.rotation = Quaternion.LookRotation(targetDir, Vector3.up);
 
         bullet.GetComponent<Rigidbody>().AddForce(targetDir * bulletSpeed);
 
         Destroy(bullet, 3);
-
 
     }
 
@@ -301,14 +276,12 @@ public class EnemyController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "LaserGreen")
+        if (other.gameObject.tag == "LaserRed")
         {
-            //Debug.Log("enemyHit");
+            //Debug.Log("wingmanHit");
             healthPoints--;
 
             Destroy(other.gameObject);
-
-            //myCameraScript.TriggerShake();
 
         }
 
@@ -317,18 +290,18 @@ public class EnemyController : MonoBehaviour
     ////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////
 
-    IEnumerator DieSequence()
+    IEnumerator DieSequence ()
     {
         //Debug.Log("Ship is dead");
         speed = 0;
         currentAiMode = AiMode.isDead;
 
-        transform.GetChild(1).transform.GetComponent<TrailRenderer>().emitting = false;
-        transform.GetChild(2).transform.gameObject.SetActive(false);
+        transform.GetChild(0).transform.GetChild(1).transform.GetComponent<TrailRenderer>().emitting = false;
+        transform.GetChild(0).transform.GetChild(2).transform.gameObject.SetActive(false);
 
         transform.GetComponent<SphereCollider>().enabled = false;
 
-        transform.GetComponent<Rigidbody>().AddExplosionForce(100, transform.position + new Vector3(0, 0, 2), 10);
+        transform.GetComponent<Rigidbody>().AddExplosionForce(100, transform.position + new Vector3 (0,0,2), 10);
 
         transform.GetComponent<Rigidbody>().useGravity = true;
         transform.GetComponent<Rigidbody>().angularDrag = 0;
@@ -336,7 +309,7 @@ public class EnemyController : MonoBehaviour
         transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
 
         yield return new WaitForSeconds(5);
-        GameManager.Instance.killShipNum(enemyID);
+        transform.gameObject.SetActive(false);
     }
 
 }
