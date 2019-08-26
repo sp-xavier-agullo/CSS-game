@@ -11,6 +11,12 @@ TextureImporter:
   - first:
       213: 920813762046036111
     second: css_worldCanvas_HUD_2
+  - first:
+      213: -7961342536155777395
+    second: css_worldCanvas_HUD_3
+  - first:
+      213: 5295107089896753774
+    second: css_worldCanvas_HUD_4
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -71,7 +77,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 1024
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -82,7 +88,7 @@ TextureImporter:
     buildTarget: Standalone
     maxTextureSize: 1024
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -93,7 +99,7 @@ TextureImporter:
     buildTarget: iPhone
     maxTextureSize: 1024
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -104,7 +110,7 @@ TextureImporter:
     buildTarget: Android
     maxTextureSize: 1024
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -123,7 +129,7 @@ TextureImporter:
         width: 512
         height: 511
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -144,7 +150,7 @@ TextureImporter:
         width: 131
         height: 133
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -165,7 +171,7 @@ TextureImporter:
         width: 99
         height: 133
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -173,6 +179,48 @@ TextureImporter:
       bones: []
       spriteID: 34642d9b3ae354527b4c361feef8c7e4
       internalID: 920813762046036111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: css_worldCanvas_HUD_3
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 377
+        width: 99
+        height: 133
+      alignment: 9
+      pivot: {x: 0.5000003, y: -0.00070167484}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1eacb0a86363e4899898d5c16f07e2c1
+      internalID: -7961342536155777395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: css_worldCanvas_HUD_4
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 376
+        width: 131
+        height: 133
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 667d89852541b4b11b9a3641987a3d6b
+      internalID: 5295107089896753774
       vertices: []
       indices: 
       edges: []

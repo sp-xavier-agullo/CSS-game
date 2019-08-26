@@ -267,6 +267,8 @@ public class WingmanController : MonoBehaviour
 
         bullet.GetComponent<Rigidbody>().AddForce(targetDir * bulletSpeed);
 
+        bullet.tag = "LaserWingman";
+
         Destroy(bullet, 3);
 
     }

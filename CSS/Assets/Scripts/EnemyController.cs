@@ -14,6 +14,8 @@ public class EnemyController : MonoBehaviour
 
     public float bulletSpeed;
 
+    public GameObject targetPointer;
+
     public GameObject laserRedBullet;
     public GameObject playerBulletsFolder;
 
@@ -55,6 +57,7 @@ public class EnemyController : MonoBehaviour
     {
         randomDestination = setRandomDestination();
         assignedTargetWingman = GameManager.Instance.SelectWingman();
+        setTargetPointer(false);
     }
 
     ////////////////////////////////////////////////////////////
@@ -234,6 +237,12 @@ public class EnemyController : MonoBehaviour
 
         }
 
+        //
+        if (targetPointer.activeSelf)
+        {
+            targetPointer.transform.LookAt(GameManager.Instance.mainCamera.transform);
+        }
+
     }
 
 
@@ -279,6 +288,21 @@ public class EnemyController : MonoBehaviour
     ////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////
 
+    public void setTargetPointer (bool isTurnedOn)
+    {
+        if (isTurnedOn)
+        {
+            targetPointer.SetActive(true);
+        }
+        else if (!isTurnedOn)
+        {
+            targetPointer.SetActive(false);
+        }
+    }
+
+    ////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////
+
     private void Shoot(GameObject targetObject)
     {
         GameObject bullet = Instantiate(laserRedBullet, playerBulletsFolder.transform);
@@ -303,12 +327,32 @@ public class EnemyController : MonoBehaviour
     {
         if (other.gameObject.tag == "LaserGreen")
         {
-            //Debug.Log("enemyHit");
             healthPoints--;
 
             Destroy(other.gameObject);
 
-            //myCameraScript.TriggerShake();
+            GameManager.Instance.AssignNewEnemyTarget(enemyID);
+            GameManager.Instance.radarShip.GetComponent<RadarController>().AssignNewEnemyPointerTarget(enemyID);
+
+            if (healthPoints<0)
+            {
+                GameManager.Instance.AssignNewEnemyTarget(-1);
+                GameManager.Instance.radarShip.GetComponent<RadarController>().AssignNewEnemyPointerTarget(-1);
+            }
+
+        }
+
+        if (other.gameObject.tag == "LaserWingman")
+        {
+            healthPoints--;
+
+            Destroy(other.gameObject);
+
+            if (healthPoints < 0)
+            {
+                GameManager.Instance.AssignNewEnemyTarget(-1);
+                GameManager.Instance.radarShip.GetComponent<RadarController>().AssignNewEnemyPointerTarget(-1);
+            }
 
         }
 

@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public GameObject playerShip;
     public GameObject radarShip;
 
+    public GameObject mainCamera;
+
     public List<GameObject> enemyList = new List<GameObject>();
     public List<GameObject> wingmanList = new List<GameObject>();
 
@@ -18,6 +20,8 @@ public class GameManager : MonoBehaviour
     public GameObject youLosePopup;
 
     public int numShooters;
+
+    private GameObject activeEnemyTarget;
 
 
     // Awake is called before the first frame update
@@ -77,6 +81,21 @@ public class GameManager : MonoBehaviour
             youLosePopup.SetActive(true);
         }
 
+
+    }
+
+    // Assign new EnemyTarget
+    public void AssignNewEnemyTarget (int enemyID)
+    {
+        for (int i=0; i < enemyList.Count; i++)
+        {
+            enemyList[i].GetComponent<EnemyController>().setTargetPointer(false);
+        }
+
+        if (enemyID != -1)
+        {
+            enemyList[enemyID].GetComponent<EnemyController>().setTargetPointer(true);
+        }
 
     }
 

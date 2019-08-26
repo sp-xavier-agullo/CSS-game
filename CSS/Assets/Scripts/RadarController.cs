@@ -12,6 +12,9 @@ public class RadarController : MonoBehaviour
 
     public List<GameObject> enemyPointerList = new List<GameObject>();
 
+    public Sprite enemyPointerArrowRed;
+    public Sprite enemyPointerArrowYellow;
+
 
     private float maxRadarWorldRange = 1000;
     private float minRadarWorldRange = 10;
@@ -61,4 +64,21 @@ public class RadarController : MonoBehaviour
 
         }
     }
+
+
+    // Assign new EnemyTarget
+    public void AssignNewEnemyPointerTarget(int enemyID)
+    {
+        for (int i = 0; i < enemyPointerList.Count; i++)
+        {
+            enemyPointerList[i].GetComponent<Image>().sprite = enemyPointerArrowRed;
+        }
+
+        if (enemyID != -1)
+        {
+            enemyPointerList[enemyID].GetComponent<Image>().sprite = enemyPointerArrowYellow;
+        }
+
+    }
+
 }
