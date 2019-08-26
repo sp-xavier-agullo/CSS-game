@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -15,6 +16,8 @@ public class GameManager : MonoBehaviour
 
     public List<GameObject> enemyList = new List<GameObject>();
     public List<GameObject> wingmanList = new List<GameObject>();
+
+    public List<GameObject> targetEnemyHUD = new List<GameObject>();
 
     public GameObject youWinPopup;
     public GameObject youLosePopup;
@@ -42,6 +45,11 @@ public class GameManager : MonoBehaviour
         AssignShooters();
     }
 
+    private void Update()
+    {
+        updateBattleCounter();
+    }
+
     // Kill an enemy
     public void killShipNum(int idNum)
     {
@@ -57,6 +65,8 @@ public class GameManager : MonoBehaviour
             levelWin();
         }
     }
+
+
 
     // Level Win
     public void levelWin()
@@ -89,15 +99,44 @@ public class GameManager : MonoBehaviour
     // Assign new EnemyTarget
     public void AssignNewEnemyTarget (int enemyID)
     {
+        targetEnemyHUD[0].SetActive(false);
+        targetEnemyHUD[1].SetActive(false);
+        targetEnemyHUD[2].SetActive(false);
+
         for (int i=0; i < enemyList.Count; i++)
         {
             enemyList[i].GetComponent<EnemyController>().setTargetPointer(false);
+
         }
 
         if (enemyID != -1)
         {
             enemyList[enemyID].GetComponent<EnemyController>().setTargetPointer(true);
+
+            targetEnemyHUD[0].SetActive(true);
+            targetEnemyHUD[1].SetActive(true);
+            targetEnemyHUD[2].SetActive(true);
+
+            EnemyController myEnemyController = enemyList[enemyID].GetComponent<EnemyController>();
+
+            targetEnemyHUD[1].GetComponent<Text>().text = myEnemyController.healthPoints.ToString() + "/" + myEnemyController.maxHealthPoints.ToString();
+            targetEnemyHUD[2].GetComponent<Text>().text = "Blue Bull " + enemyID.ToString();
         }
+
+    }
+
+    // Update battle counter
+    public void updateBattleCounter()
+    {
+        int numAllies = CountWingmen();
+        int numEnemies = CountEnemies();
+
+        if (playerShip.transform.GetChild(0).gameObject.activeSelf)
+        {
+            numAllies += 1;
+        }
+
+        targetEnemyHUD[3].GetComponent<Text>().text = "Enemies: " + numEnemies + " || " + "Allies: " + numAllies;
 
     }
 
