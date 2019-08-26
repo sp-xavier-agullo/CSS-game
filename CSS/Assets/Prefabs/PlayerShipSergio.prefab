@@ -9605,6 +9605,7 @@ MonoBehaviour:
   shootFlareLeft: {fileID: 8484556052392270721}
   explosionShipDead: {fileID: 100010, guid: d609d5ebc845aca409f72e9c6a56dc60, type: 3}
   laserHit: {fileID: 100010, guid: 7f286745542804344a15781d640d27be, type: 3}
+  myShip: {fileID: 5964103529495850904}
   shipDeadTimeline: {fileID: 0}
 --- !u!114 &2495937083809237584
 MonoBehaviour:

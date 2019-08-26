@@ -24,7 +24,6 @@ public class ShipControllerSergio : MonoBehaviour
 
     public GameObject laserGreenBullet;
     public GameObject playerBulletsFolder;
-    private GameObject myShip;
 
     private float maxSpeed = 100;
     private float minSpeed = 20;
@@ -50,6 +49,7 @@ public class ShipControllerSergio : MonoBehaviour
     [SerializeField] GameObject shootFlareLeft;
     [SerializeField] GameObject explosionShipDead;
     [SerializeField] GameObject laserHit;
+    [SerializeField] GameObject myShip;
     public PlayableDirector shipDeadTimeline;
 
 
@@ -58,7 +58,6 @@ public class ShipControllerSergio : MonoBehaviour
     {
         shipRigidBody = GetComponent<Rigidbody>();
         anim = GetComponentInChildren<Animator>();
-        myShip = GameObject.Find("myShip");
         maxHealthPoints = healthPoints;
     }
 
