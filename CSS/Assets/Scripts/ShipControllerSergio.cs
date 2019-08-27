@@ -13,6 +13,7 @@ public class ShipControllerSergio : MonoBehaviour
     public bool useKeyboard;
 
     public float healthPoints;
+    public float energyPoints;
 
     public float speed = 50f;
     public float turnSpeed = 0.5f;
@@ -41,10 +42,14 @@ public class ShipControllerSergio : MonoBehaviour
 
     private GameObject[] getCount;
     private int count;
-    private float maxHealthPoints;
 
-    [SerializeField] Text speedText;
-    [SerializeField] Text healthText;
+    private float maxHealthPoints;
+    private float maxEnergyPoints;
+
+    [SerializeField] Image LifeBar;
+    [SerializeField] Image SpeedBar;
+    [SerializeField] Image EnergyBar;
+
     [SerializeField] GameObject shootFlareRight;
     [SerializeField] GameObject shootFlareLeft;
     [SerializeField] GameObject explosionShipDead;
@@ -59,6 +64,7 @@ public class ShipControllerSergio : MonoBehaviour
         shipRigidBody = GetComponent<Rigidbody>();
         anim = GetComponentInChildren<Animator>();
         maxHealthPoints = healthPoints;
+        energyPoints = 100;
     }
 
     ////////////////////////////////////////////////////////////
@@ -81,8 +87,6 @@ public class ShipControllerSergio : MonoBehaviour
         if (speed > maxSpeed) { speed = maxSpeed; };
         if (speed < minSpeed) { speed = minSpeed; };
 
-        speedText.text = "Speed: " + Mathf.RoundToInt(speed).ToString();
-
         if (Input.GetKeyDown("space"))
         {
             if (healthPoints>1)
@@ -95,7 +99,7 @@ public class ShipControllerSergio : MonoBehaviour
             healthPoints--;
         }
 
-        updateHUD();
+        
 
         if (healthPoints < 0)
         {
@@ -105,8 +109,8 @@ public class ShipControllerSergio : MonoBehaviour
             shipDead();
         }
 
+        UpdateHUD();
     }
-
 
     ////////////////////////////////////////////////////////////
 
@@ -200,10 +204,16 @@ public class ShipControllerSergio : MonoBehaviour
     }
 
     ////////////////////////////////////////////////////////////
-    private void updateHUD()
+    private void UpdateHUD()
     {
-        speedText.text = "Speed: " + Mathf.RoundToInt(speed).ToString();
-        healthText.text = "Health: " + healthPoints.ToString();
+        float healthToShow = 1;
+
+        LifeBar.fillAmount = 1;
+        SpeedBar.fillAmount = 1;
+        EnergyBar.fillAmount = 1;
+
+        //speedText.text = "Speed: " + Mathf.RoundToInt(speed).ToString();
+        //healthText.text = "Health: " + healthPoints.ToString();
     }
 
     private void shipDead()
