@@ -31,8 +31,8 @@ public class ShipControllerSergio : MonoBehaviour
 
     private int activeCannon = 1;
 
-    private float powerInput;
-    private float turnInput;
+    private float verticalInput;
+    private float horizontalInput;
 
     public FixedJoystick fixedJoystick;
 
@@ -73,19 +73,19 @@ public class ShipControllerSergio : MonoBehaviour
     ////////////////////////////////////////////////////////////
     void Update()
     {
-        if (useKeyboard)
-        {
-            powerInput = Input.GetAxis("Vertical");
-            turnInput = Input.GetAxis("Horizontal");
-        }
+        //if (useKeyboard)
+        //{
+        //    powerInput = Input.GetAxis("Vertical");
+        //    turnInput = Input.GetAxis("Horizontal");
+        //}
 
         if (!useKeyboard)
         {
-            powerInput = fixedJoystick.Vertical;
-            turnInput = fixedJoystick.Horizontal;
+            verticalInput = fixedJoystick.Vertical;
+            horizontalInput = fixedJoystick.Horizontal;
         }
 
-        speed += powerInput;
+        //speed += powerInput;
 
         if (speed > maxSpeed) { speed = maxSpeed; };
         if (speed < minSpeed) { speed = minSpeed; };
@@ -139,12 +139,12 @@ public class ShipControllerSergio : MonoBehaviour
 
         shipRigidBody.AddRelativeForce(0f, 0f, speed);
 
-        //
-        shipRigidBody.AddRelativeTorque(0f, turnInput * turnSpeed, 0f);
 
-        if(anim != null)
+        shipRigidBody.AddRelativeTorque(verticalInput * turnSpeed, 0f, -horizontalInput * turnSpeed);
 
-            anim.SetFloat("Turn", turnInput);
+        //if (anim != null)
+
+        //    anim.SetFloat("Turn", horizontalInput);
 
     }
 
