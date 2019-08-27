@@ -9721,8 +9721,8 @@ MonoBehaviour:
   speed: 50
   speedMultiplier: 10
   stabilize: 0.8
+  fixedJoystick: {fileID: 0}
   myShip: {fileID: 5964103529495850904}
-  target: {fileID: 0}
 --- !u!1 &6360930414051308622
 GameObject:
   m_ObjectHideFlags: 0
