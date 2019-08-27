@@ -31,7 +31,8 @@ public class ShipControllerSergio : MonoBehaviour
     private int activeCannon = 1;
 
     private float powerInput;
-    private float turnInput;
+    private float verticalInput;
+    private float horizontalInput;
 
     public FixedJoystick fixedJoystick;
 
@@ -53,6 +54,26 @@ public class ShipControllerSergio : MonoBehaviour
     public PlayableDirector shipDeadTimeline;
 
 
+    /// ///////////////////////////////////////////////////////
+
+    [Tooltip("X: Lateral thrust\nY: Vertical thrust\nZ: Longitudinal Thrust")]
+    public Vector3 linearForce = new Vector3(100.0f, 100.0f, 100.0f);
+
+    [Tooltip("X: Pitch\nY: Yaw\nZ: Roll")]
+    public Vector3 angularForce = new Vector3(100.0f, 100.0f, 100.0f);
+
+    [Range(0.0f, 1.0f)]
+    [Tooltip("Multiplier for longitudinal thrust when reverse thrust is requested.")]
+    public float reverseMultiplier = 1.0f;
+
+    [Tooltip("Multiplier for all forces. Can be used to keep force numbers smaller and more readable.")]
+    public float forceMultiplier = 100.0f;
+
+    private Vector3 appliedLinearForce = Vector3.zero;
+    private Vector3 appliedAngularForce = Vector3.zero;
+
+
+
     ////////////////////////////////////////////////////////////
     void Awake()
     {
@@ -66,14 +87,14 @@ public class ShipControllerSergio : MonoBehaviour
     {
         if (useKeyboard)
         {
-            powerInput = Input.GetAxis("Vertical");
-            turnInput = Input.GetAxis("Horizontal");
+            verticalInput = Input.GetAxis("Vertical");
+            horizontalInput = Input.GetAxis("Horizontal");
         }
 
         if (!useKeyboard)
         {
-            powerInput = fixedJoystick.Vertical;
-            turnInput = fixedJoystick.Horizontal;
+            verticalInput = fixedJoystick.Vertical;
+            horizontalInput = fixedJoystick.Horizontal;
         }
 
         speed += powerInput;
@@ -112,26 +133,50 @@ public class ShipControllerSergio : MonoBehaviour
 
     private void FixedUpdate()
     {
-    Ray ray = new Ray(transform.position, -transform.up);
-    RaycastHit hit;
+        
+            if (shipRigidBody != null)
+            {
+            shipRigidBody.AddRelativeForce(appliedLinearForce * forceMultiplier, ForceMode.Force);
+            shipRigidBody.AddRelativeTorque(appliedAngularForce * forceMultiplier, ForceMode.Force);
+            }
+        
+                                                                                                                //Ray ray = new Ray(transform.position, -transform.up);
+                                                                                                                //RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, hoverHeight))
-        {
-        float proportionalHeight = (hoverHeight - hit.distance) / hoverHeight;
-        Vector3 appliedHoverForce = Vector3.up * proportionalHeight * hoverForce;
-        shipRigidBody.AddForce(appliedHoverForce, ForceMode.Acceleration);
+                                                                                                                //    if (Physics.Raycast(ray, out hit, hoverHeight))
+                                                                                                                //    {
+                                                                                                                //    float proportionalHeight = (hoverHeight - hit.distance) / hoverHeight;
+                                                                                                                //    Vector3 appliedHoverForce = Vector3.up * proportionalHeight * hoverForce;
+                                                                                                                //    shipRigidBody.AddForce(appliedHoverForce, ForceMode.Acceleration);
 
-        }
+                                                                                                                //    }
 
-        shipRigidBody.AddRelativeForce(0f, 0f, speed);
+        //shipRigidBody.AddRelativeForce(0f, verticalInput * verticalInput * turnSpeed, speed);
 
-        //
-        shipRigidBody.AddRelativeTorque(0f, turnInput * turnSpeed, 0f);
+ 
+        //shipRigidBody.AddRelativeTorque(verticalInput , horizontalInput * turnSpeed, verticalInput);
 
         if(anim != null)
 
-            anim.SetFloat("Turn", turnInput);
+            anim.SetFloat("Turn", horizontalInput);
 
+    }
+
+    public void SetPhysicsInput(Vector3 linearInput, Vector3 angularInput)
+    {
+        appliedLinearForce = MultiplyByComponent(linearInput, linearForce);
+        appliedAngularForce = MultiplyByComponent(angularInput, angularForce);
+    }
+
+    private Vector3 MultiplyByComponent(Vector3 a, Vector3 b)
+    {
+        Vector3 ret;
+
+        ret.x = a.x * b.x;
+        ret.y = a.y * b.y;
+        ret.z = a.z * b.z;
+
+        return ret;
     }
 
     public void Shoot()
