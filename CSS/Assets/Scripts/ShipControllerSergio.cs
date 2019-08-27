@@ -73,12 +73,13 @@ public class ShipControllerSergio : MonoBehaviour
     private Vector3 appliedAngularForce = Vector3.zero;
 
     //public bool UsingMouseInput { get { return useMouseInput; } }
-    public Vector3 Velocity { get { return GetVelocity(); } }
+    //public Vector3 Velocity { get { return GetVelocity(); } }
 
-    private static Vector3 GetVelocity()
-    {
-        return Rigidbody.velocity;
-    }
+    //private static Vector3 GetVelocity()
+    //{
+    //    return Rigidbody.velocity;
+    //}
+    public Vector3 Velocity = new Vector3(); 
 
     public float Throttle { get { return throttle; } }
 

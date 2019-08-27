@@ -9482,6 +9482,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3417125186096310498}
+  - component: {fileID: 7723818240325379759}
   m_Layer: 0
   m_Name: myShip
   m_TagString: Untagged
@@ -9510,6 +9511,19 @@ Transform:
   m_Father: {fileID: 6361421128041305694}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &7723818240325379759
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5964103529495850904}
+  m_Material: {fileID: 13400000, guid: 044879a2cc68c4bcdab93441006d1b92, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6359940089152530168
 GameObject:
   m_ObjectHideFlags: 0
@@ -9521,10 +9535,10 @@ GameObject:
   - component: {fileID: 6361421128041305694}
   - component: {fileID: 6360930414628324028}
   - component: {fileID: 7411623323341171581}
-  - component: {fileID: 6487998531823455325}
   - component: {fileID: 2495937083809237584}
   - component: {fileID: 5067194915136667675}
   - component: {fileID: 8322889568774300822}
+  - component: {fileID: 1578153022439765}
   m_Layer: 0
   m_Name: PlayerShipSergio
   m_TagString: Untagged
@@ -9558,10 +9572,10 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 1
   m_AngularDrag: 5
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!135 &7411623323341171581
 SphereCollider:
@@ -9576,37 +9590,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6487998531823455325
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6359940089152530168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9344049ec2d73646b9ef44124249d15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useKeyboard: 1
-  healthPoints: 20
-  speed: 50
-  turnSpeed: 15
-  hoverForce: 65
-  hoverHeight: 10
-  bulletSpeed: 1000
-  laserGreenBullet: {fileID: 3638454595672958179, guid: 6edba797ab87d4ef6a97c4feac4e503b,
-    type: 3}
-  playerBulletsFolder: {fileID: 0}
-  fixedJoystick: {fileID: 0}
-  speedText: {fileID: 0}
-  healthText: {fileID: 0}
-  shootFlareRight: {fileID: 1636818864}
-  shootFlareLeft: {fileID: 8484556052392270721}
-  explosionShipDead: {fileID: 100010, guid: d609d5ebc845aca409f72e9c6a56dc60, type: 3}
-  laserHit: {fileID: 100010, guid: 7f286745542804344a15781d640d27be, type: 3}
-  myShip: {fileID: 5964103529495850904}
-  shipDeadTimeline: {fileID: 0}
 --- !u!114 &2495937083809237584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9614,7 +9597,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6359940089152530168}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a2b29544581cbff48a74923442363fb0, type: 3}
   m_Name: 
@@ -9630,7 +9613,7 @@ MonoBehaviour:
   onSwipe:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6487998531823455325}
+      - m_Target: {fileID: 0}
         m_MethodName: DodgeLeft
         m_Mode: 1
         m_Arguments:
@@ -9655,7 +9638,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6359940089152530168}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a2b29544581cbff48a74923442363fb0, type: 3}
   m_Name: 
@@ -9671,7 +9654,7 @@ MonoBehaviour:
   onSwipe:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6487998531823455325}
+      - m_Target: {fileID: 0}
         m_MethodName: DodgeRight
         m_Mode: 1
         m_Arguments:
@@ -9696,7 +9679,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6359940089152530168}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7c1c71d8ad5da9438de3b2e5990763f, type: 3}
   m_Name: 
@@ -9709,7 +9692,7 @@ MonoBehaviour:
   onTap:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6487998531823455325}
+      - m_Target: {fileID: 0}
         m_MethodName: Shoot
         m_Mode: 1
         m_Arguments:
@@ -9722,6 +9705,24 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: Lean.Touch.LeanFingerTap+LeanFingerEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1578153022439765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6359940089152530168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1185c1c285fc8d24184ee39ae93e2f7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnSpeed: 15
+  speed: 50
+  speedMultiplier: 10
+  stabilize: 0.8
+  myShip: {fileID: 5964103529495850904}
+  target: {fileID: 0}
 --- !u!1 &6360930414051308622
 GameObject:
   m_ObjectHideFlags: 0
