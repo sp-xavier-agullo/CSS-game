@@ -17,6 +17,7 @@ public class RadarController : MonoBehaviour
     public Sprite radarPointerArrowYellow;
     public Sprite radarPointerArrowGreen;
 
+    public CanvasGroup radarCanvasGroup;
 
     private float maxRadarWorldRange = 1000;
     private float minRadarWorldRange = 10;
@@ -41,6 +42,8 @@ public class RadarController : MonoBehaviour
             myAlliedPointer.GetComponent<Image>().sprite = radarPointerArrowGreen;
             alliesPointerList.Add(myAlliedPointer);
         }
+
+        radarCanvasGroup.alpha = 0;
     }
 
     // Update is called once per frame
@@ -95,6 +98,11 @@ public class RadarController : MonoBehaviour
 
             alliesPointerList[i].gameObject.GetComponent<CanvasGroup>().alpha = alphaAmount;
 
+        }
+
+        if (radarCanvasGroup.alpha < 1f)
+        {
+            radarCanvasGroup.alpha += 0.002f;
         }
 
     }

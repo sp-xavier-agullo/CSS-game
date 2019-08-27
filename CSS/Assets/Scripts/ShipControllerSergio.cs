@@ -13,7 +13,7 @@ public class ShipControllerSergio : MonoBehaviour
     public bool useKeyboard;
 
     public float healthPoints;
-    public float energyPoints;
+    public float energyPoints = 100;
 
     public float speed = 50f;
     public float turnSpeed = 0.5f;
@@ -46,6 +46,9 @@ public class ShipControllerSergio : MonoBehaviour
     private float maxHealthPoints;
     private float maxEnergyPoints;
 
+    private float energyPerLaser = 5;
+    private float energyRegenerationPerSecond = 4;
+
     [SerializeField] Image LifeBar;
     [SerializeField] Image SpeedBar;
     [SerializeField] Image EnergyBar;
@@ -64,7 +67,7 @@ public class ShipControllerSergio : MonoBehaviour
         shipRigidBody = GetComponent<Rigidbody>();
         anim = GetComponentInChildren<Animator>();
         maxHealthPoints = healthPoints;
-        energyPoints = 100;
+        maxEnergyPoints = energyPoints;
     }
 
     ////////////////////////////////////////////////////////////
@@ -99,8 +102,6 @@ public class ShipControllerSergio : MonoBehaviour
             healthPoints--;
         }
 
-        
-
         if (healthPoints < 0)
         {
             GameManager.Instance.levelLose();
@@ -108,6 +109,12 @@ public class ShipControllerSergio : MonoBehaviour
 
             shipDead();
         }
+
+        if (energyPoints<maxEnergyPoints)
+        {
+            energyPoints += energyRegenerationPerSecond * Time.deltaTime;
+        }
+        
 
         UpdateHUD();
     }
@@ -140,28 +147,35 @@ public class ShipControllerSergio : MonoBehaviour
 
     public void Shoot()
     {
-    GameObject bullet = Instantiate(laserGreenBullet, playerBulletsFolder.transform);
 
-        bullet.transform.rotation = transform.rotation;
-
-        if (activeCannon == 1)
+        if (energyPoints > 0)
         {
-            shootFlareLeft.SetActive(false);
-            bullet.transform.position = transform.position + new Vector3(2, 0, 0);
-            shootFlareRight.SetActive(true);
-            activeCannon = 2;
-        }
-        else if (activeCannon == 2)
-        {
-            shootFlareRight.SetActive(false);
-            bullet.transform.position = transform.position + new Vector3(-2, 0, 0);
-            shootFlareLeft.SetActive(true);
-            activeCannon = 1;
+            GameObject bullet = Instantiate(laserGreenBullet, playerBulletsFolder.transform);
+
+            bullet.transform.rotation = transform.rotation;
+
+            if (activeCannon == 1)
+            {
+                shootFlareLeft.SetActive(false);
+                bullet.transform.position = transform.position + new Vector3(2, 0, 0);
+                shootFlareRight.SetActive(true);
+                activeCannon = 2;
+            }
+            else if (activeCannon == 2)
+            {
+                shootFlareRight.SetActive(false);
+                bullet.transform.position = transform.position + new Vector3(-2, 0, 0);
+                shootFlareLeft.SetActive(true);
+                activeCannon = 1;
+            }
+
+            bullet.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed);
+
+            Destroy(bullet, 3);
+
         }
 
-        bullet.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed);
-
-        Destroy(bullet, 3);
+        energyPoints -= 5;
 
     }
 
@@ -206,11 +220,13 @@ public class ShipControllerSergio : MonoBehaviour
     ////////////////////////////////////////////////////////////
     private void UpdateHUD()
     {
-        float healthToShow = 1;
+        float healthToShow = Utils.convertToNewRange(0,maxHealthPoints,0,1,healthPoints);
+        float speedToShow = Utils.convertToNewRange(0,maxSpeed,0,1,speed);
+        float energyToShow = Utils.convertToNewRange(0,maxEnergyPoints,0,1,energyPoints);
 
-        LifeBar.fillAmount = 1;
-        SpeedBar.fillAmount = 1;
-        EnergyBar.fillAmount = 1;
+        LifeBar.fillAmount = healthToShow;
+        SpeedBar.fillAmount = speedToShow;
+        EnergyBar.fillAmount = energyToShow;
 
         //speedText.text = "Speed: " + Mathf.RoundToInt(speed).ToString();
         //healthText.text = "Health: " + healthPoints.ToString();
