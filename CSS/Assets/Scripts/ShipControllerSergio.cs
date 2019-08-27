@@ -72,7 +72,30 @@ public class ShipControllerSergio : MonoBehaviour
     private Vector3 appliedLinearForce = Vector3.zero;
     private Vector3 appliedAngularForce = Vector3.zero;
 
+    //public bool UsingMouseInput { get { return useMouseInput; } }
+    public Vector3 Velocity { get { return GetVelocity(); } }
 
+    private static Vector3 GetVelocity()
+    {
+        return Rigidbody.velocity;
+    }
+
+    public float Throttle { get { return throttle; } }
+
+    [Range(-1, 1)]
+    public float pitch;
+    [Range(-1, 1)]
+    public float yaw;
+    [Range(-1, 1)]
+    public float roll;
+    [Range(-1, 1)]
+    public float strafe;
+    [Range(0, 1)]
+    public float throttle;
+
+    public bool addRoll = true;
+
+    private const float THROTTLE_SPEED = 0.5f;
 
     ////////////////////////////////////////////////////////////
     void Awake()
@@ -85,17 +108,26 @@ public class ShipControllerSergio : MonoBehaviour
     ////////////////////////////////////////////////////////////
     void Update()
     {
-        if (useKeyboard)
-        {
-            verticalInput = Input.GetAxis("Vertical");
-            horizontalInput = Input.GetAxis("Horizontal");
-        }
+                                                                                            //if (useKeyboard)
+                                                                                            //{
+                                                                                            //    verticalInput = Input.GetAxis("Vertical");
+                                                                                            //    horizontalInput = Input.GetAxis("Horizontal");
+                                                                                            //}
 
-        if (!useKeyboard)
-        {
-            verticalInput = fixedJoystick.Vertical;
-            horizontalInput = fixedJoystick.Horizontal;
-        }
+                                                                                            //if (!useKeyboard)
+                                                                                            //{
+                                                                                            //    verticalInput = fixedJoystick.Vertical;
+                                                                                            //    horizontalInput = fixedJoystick.Horizontal;
+                                                                                            //}
+
+        pitch = Input.GetAxis("Vertical");
+        yaw = Input.GetAxis("Horizontal");
+
+        if (addRoll)
+            roll = -Input.GetAxis("Horizontal") * 0.5f;
+
+        strafe = 0.0f;
+        //UpdateKeyboardThrottle(KeyCode.R, KeyCode.F);
 
         speed += powerInput;
 
