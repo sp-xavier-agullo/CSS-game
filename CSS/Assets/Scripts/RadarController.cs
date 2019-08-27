@@ -107,6 +107,10 @@ public class RadarController : MonoBehaviour
 
     }
 
+    public void hideRadar()
+    {
+        gameObject.SetActive(false);
+    }
 
     // Assign new EnemyTarget
     public void AssignNewEnemyPointerTarget(int enemyID)

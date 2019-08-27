@@ -235,7 +235,7 @@ public class EnemyController : MonoBehaviour
 
         // Die
 
-        if (healthPoints < 0)
+        if (healthPoints < 0 && currentAiMode != AiMode.isDead)
         {
 
             StartCoroutine("DieSequence");
@@ -376,6 +376,10 @@ public class EnemyController : MonoBehaviour
         speed = 0;
         currentAiMode = AiMode.isDead;
 
+        Instantiate(GameManager.Instance.explosionShip, transform);
+
+        spawnPowerup(transform.position);
+
         transform.GetChild(1).transform.GetComponent<TrailRenderer>().emitting = false;
         transform.GetChild(2).transform.gameObject.SetActive(false);
 
@@ -397,7 +401,28 @@ public class EnemyController : MonoBehaviour
 
     ////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////
-    
+
+    private void spawnPowerup (Vector3 spawnLoc)
+    {
+        int randomNum = Random.Range(0, 4);
+        Debug.Log("random num is" + randomNum.ToString());
+
+        if (randomNum==0)
+        {
+            Instantiate(GameManager.Instance.energyPowerup, transform.position, Quaternion.identity, GameManager.Instance.playerBulletFolder.transform);
+            
+        }
+
+        if (randomNum == 1)
+        {
+            Instantiate(GameManager.Instance.healthPowerup, transform.position, Quaternion.identity, GameManager.Instance.playerBulletFolder.transform);
+        }
+
+    }
+
+    ////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////
+
     private void checkDamage()
     {
         if (healthPoints < (maxHealthPoints / 2))

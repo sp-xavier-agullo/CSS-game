@@ -4884,7 +4884,7 @@ MonoBehaviour:
   enemyID: 0
   speed: 50
   turnSpeed: 0.5
-  healthPoints: 4
+  healthPoints: 5
   bulletSpeed: 7
   targetPointer: {fileID: 3621651134820701600}
   laserRedBullet: {fileID: 6957989063585633919, guid: b10d732af850a48c48cf7bf504dc7ed1,

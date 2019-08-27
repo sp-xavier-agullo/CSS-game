@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public GameObject playerShip;
     public GameObject radarShip;
 
+    public GameObject playerBulletFolder;
+
     public GameObject mainCamera;
 
     public List<GameObject> enemyList = new List<GameObject>();
@@ -28,10 +30,16 @@ public class GameManager : MonoBehaviour
 
     private GameObject activeEnemyTarget;
 
+    public GameObject energyPowerup;
+    public GameObject healthPowerup;
+    public GameObject PowerupCollect;
+
 
     // Awake is called before the first frame update
     void Awake()
     {
+        setupDifficulty();
+
         if (Instance == null)
         {
             Instance = this;
@@ -48,6 +56,37 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         updateBattleCounter();
+    }
+
+    // Setup difficulty
+    private void setupDifficulty()
+    {
+        GameObject myDiffSelector = GameObject.Find("difficultyManager");
+
+        if (myDiffSelector == null)
+        {
+            numShooters = 2;
+        }
+        else
+        {
+            if (myDiffSelector.GetComponent<DifficultySelector>().difficultyLevel == 1)
+            {
+                numShooters = 2;
+            }
+
+            if (myDiffSelector.GetComponent<DifficultySelector>().difficultyLevel == 2)
+            {
+                numShooters = 4;
+            }
+
+            if (myDiffSelector.GetComponent<DifficultySelector>().difficultyLevel == 3)
+            {
+                    numShooters = 6;
+            }
+            
+        }
+
+
     }
 
     // Kill an enemy

@@ -12,6 +12,8 @@ TagManager:
   - FxTemporaire
   - DeadExplosion
   - LaserWingman
+  - energyPowerup
+  - healthPowerup
   layers:
   - Default
   - TransparentFX

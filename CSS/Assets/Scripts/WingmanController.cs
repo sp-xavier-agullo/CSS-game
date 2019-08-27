@@ -207,7 +207,7 @@ public class WingmanController : MonoBehaviour
 
         // Die
 
-        if (healthPoints < 0)
+        if (healthPoints < 0 && currentAiMode != AiMode.isDead)
         {
 
             StartCoroutine("DieSequence");

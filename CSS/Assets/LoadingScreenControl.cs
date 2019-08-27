@@ -7,8 +7,12 @@ using UnityEngine.SceneManagement;
 
 public class LoadingScreenControl : MonoBehaviour
 {
-    public void OnClickedPlay()
+
+    public DifficultySelector diffManager;
+
+    public void OnClickedPlay(int diffLevel)
     {
+        diffManager.difficultyLevel = diffLevel;
         SceneManager.LoadScene("ReskinScene");
     }
 }

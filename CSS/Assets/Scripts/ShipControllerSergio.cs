@@ -47,7 +47,7 @@ public class ShipControllerSergio : MonoBehaviour
     private float maxEnergyPoints;
 
     private float energyPerLaser = 5;
-    private float energyRegenerationPerSecond = 4;
+    private float energyRegenerationPerSecond = 4.5f;
 
     [SerializeField] Image LifeBar;
     [SerializeField] Image SpeedBar;
@@ -110,11 +110,14 @@ public class ShipControllerSergio : MonoBehaviour
             shipDead();
         }
 
-        if (energyPoints<maxEnergyPoints)
+
+        energyPoints += energyRegenerationPerSecond * Time.deltaTime;
+
+        if (energyPoints > maxEnergyPoints)
         {
-            energyPoints += energyRegenerationPerSecond * Time.deltaTime;
+            energyPoints = maxEnergyPoints;
         }
-        
+
 
         UpdateHUD();
     }
@@ -148,7 +151,7 @@ public class ShipControllerSergio : MonoBehaviour
     public void Shoot()
     {
 
-        if (energyPoints > 0)
+        if (energyPoints > energyPerLaser)
         {
             GameObject bullet = Instantiate(laserGreenBullet, playerBulletsFolder.transform);
 
@@ -175,20 +178,25 @@ public class ShipControllerSergio : MonoBehaviour
 
         }
 
-        energyPoints -= 5;
+        energyPoints -= energyPerLaser;
+
+        if (energyPoints < 0)
+        {
+            energyPoints = 0;
+        }
 
     }
 
     public void DodgeLeft()
     {
-        Debug.Log("dash left");
+        //Debug.Log("dash left");
         anim.SetTrigger("DodgeLeft");
         shipRigidBody.AddRelativeForce(-50f, 0, 0, ForceMode.Impulse);
     }
 
     public void DodgeRight()
     {
-        Debug.Log("dash right");
+        //Debug.Log("dash right");
         anim.SetTrigger("DodgeRight");
         shipRigidBody.AddRelativeForce(50f, 0, 0, ForceMode.Impulse);
     }
@@ -215,6 +223,38 @@ public class ShipControllerSergio : MonoBehaviour
 
         }
 
+        if (other.gameObject.tag == "energyPowerup")
+        {
+            energyPoints+= maxEnergyPoints/5;
+
+            if (energyPoints>maxEnergyPoints)
+            {
+                energyPoints = maxEnergyPoints;
+            }
+
+            GameObject collectParticles = Instantiate(GameManager.Instance.PowerupCollect, transform);
+            Destroy(collectParticles, 3f);
+
+            Destroy(other.gameObject);
+
+        }
+
+        if (other.gameObject.tag == "healthPowerup")
+        {
+            healthPoints += maxHealthPoints / 5;
+
+            if (healthPoints > maxHealthPoints)
+            {
+                healthPoints = maxHealthPoints;
+            }
+
+            GameObject collectParticles = Instantiate(GameManager.Instance.PowerupCollect, transform);
+            Destroy(collectParticles, 3f);
+
+            Destroy(other.gameObject);
+
+        }
+
     }
 
     ////////////////////////////////////////////////////////////
@@ -234,6 +274,8 @@ public class ShipControllerSergio : MonoBehaviour
 
     private void shipDead()
     {
+        GameManager.Instance.radarShip.GetComponent<RadarController>().hideRadar();
+
         getCount = GameObject.FindGameObjectsWithTag("DeadExplosion");
         count = getCount.Length;
         if (count == 0)
