@@ -480,12 +480,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb011efbd8f64bca97948dfc2e566b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Ship:
+    Health: 0
+    ForwardSpeed: 50
+    TurnSpeed: 5
+    HoverForce: 65
+    HoverHeight: 10
+    MaxSpeed: 100
+    MinSpeed: 20
+    Acceleration: 0
+    Weapon:
+      WeaponKind: 0
+      FireRate: 0
+      Projectile:
+        ProjectileKind: 0
+        Damage: 0
+        Speed: 1000
+    WeaponEnergyMax: 0
+    WeaponEnergyRecharge: 0
+    Unlocked: 1
+    Cost: 0
+  healthPoints: 0
   speed: 50
   turnSpeed: 5
   hoverForce: 65
   hoverHeight: 10
+  bulletSpeed: 1000
+  laserGreenBullet: {fileID: 0}
+  playerBulletsFolder: {fileID: 0}
   speedText: {fileID: 0}
-  myCameraScript: {fileID: 1297467091}
+  healthText: {fileID: 0}
 --- !u!1 &1794273669107246
 GameObject:
   m_ObjectHideFlags: 0

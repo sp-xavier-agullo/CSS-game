@@ -110,7 +110,7 @@ public class GameManager : MonoBehaviour
     // Level Win
     public void levelWin()
     {
-        playerShip.transform.GetComponent<ShipControllerSergio>().shipDeadTimeline.Play();
+        playerShip.transform.GetComponent<ShipController>().shipDeadTimeline.Play();
         StartCoroutine(showPopup("win"));
     }
 
